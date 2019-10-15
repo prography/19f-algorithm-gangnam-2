@@ -4,9 +4,9 @@
 <br>
 <br> 
 
-## Easy Problem 
+## Easy Level Problem 
 ### Two Sum_easy
-- (주소)  https://leetcode.com/problems/two-sum/
+- (주소) https://leetcode.com/problems/two-sum/
 
 <br>
 
@@ -16,9 +16,8 @@
 <br>
 
 - 풀이 해설:
-
-  - 1) 이중 for문을 사용한 brute force 방법
-    - 효율성 18.24%
+- 1) 이중 for문을 사용한 brute force 방법
+  - 효율성 18.24%
 ~~~ C++
 /// MARK: - 이중 for문 사용 통과답안, 18.24%
 vector<int> twoSum(vector<int>& nums, int target) {
@@ -40,8 +39,8 @@ vector<int> twoSum(vector<int>& nums, int target) {
   
   <br>
   
-  - 2) map 테이블을 활용한 풀이방법 
-    - 효율성 64.24% ~ 92.65%
+- 2) map 테이블을 활용한 풀이방법 
+  - 효율성 64.24% ~ 92.65%
 ~~~ C++
 /// MARK: - unordered_map 사용 통과답안, 64.24% ~ 92.65%
 //  * map 사용 시 48%
@@ -72,9 +71,8 @@ vector<int> twoSum2(vector<int>& nums, int target) {
 <br>
 
 - 풀이 해설:
-
-  - 벡터 erase() 사용 답안 
-    - 효율성 10%
+- 벡터 erase() 사용 답안 
+  - 효율성 10%
 ~~~ C++
 /// MARK: erase 함수 사용 통과답안, 10%
 int removeDuplicates(vector<int>& nums) {
@@ -91,8 +89,8 @@ int removeDuplicates(vector<int>& nums) {
 
 <br>
 
-  - set 사용 답안 
-    - 효율성 25%
+- set 사용 답안 
+  - 효율성 25%
 ~~~ C++
 /// MARK: - set 사용 통과답안, 25%
 int removeDuplicates(vector<int>& nums) {
@@ -105,9 +103,9 @@ int removeDuplicates(vector<int>& nums) {
 ~~~
 
 <br>
-  
-  - 서브 벡터 사용 통과답안
-    - 효율성 93.43%
+
+- 서브 벡터 사용 통과답안
+  - 효율성 93.43%
 ~~~ C++
 int removeDuplicatesSemiMaster(vector<int>& nums) {
     vector<int> Ans;
@@ -209,47 +207,9 @@ public:
 ~~~
 
 <br>
-
-### Search Insert Position_easy
-- (주소)  https://leetcode.com/problems/search-insert-position
-
 <br>
 
-- 문제 요약:
-  - target 인덱스를 반환, target 없을 시 target 값 이하의 최댓값 다음 인덱스 반환 
-
-<br>
-
-- 풀이 해설:
-
-~~~ C++
-
-#include <vector>
-using namespace std;
-
-class SearchInsertPosition {
-public:
-    
-    /// MARK: - 통과 답안, 98.22%
-    int searchInsertMaster(vector<int>& nums, int target) {
-        int Ans=0;
-        for(int i=0; i<nums.size(); i++) {
-            if(nums[i]==target) return i;
-            else {
-                if(nums[i] < target) Ans=i+1;
-                else break;
-            }
-        }
-        return Ans;
-    }
-};
-    
-~~~
-
-<br>
-<br>
-
-## Medium Problem 
+## Medium Level Problem 
 
 ### Rotate Image
 - (주소)  https://leetcode.com/problems/rotate-image/
@@ -366,7 +326,7 @@ public:
 <br>
 <br>
 
-## Hard Problem 
+## Hard Level Problem 
 
 ### First missing positive
 - (주소)  https://leetcode.com/problems/first-missing-positive/
