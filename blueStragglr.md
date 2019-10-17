@@ -97,22 +97,144 @@ def solution(s):
             
         return shortenWord
 
-
 ---
 
 
 
-#### 문제 이름
+#### 문제 이름: Search Insert Position
 
-(주소)
+(https://leetcode.com/problems/search-insert-position/submissions/)
 
 
 
 #### 문제 요약:
 
+Sorting 된 int Array와 target(int)이 주어진다. target이 포함되어있다면 target의 위치를 반환하고, 포함되어 있지 않다면 추가 후 sorting했을 때의 위치를 반환하라.
+
 
 
 #### 풀이 해설:
+
+Sol 1. Brute Force Algorithm ~ O(n)
+
+```
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+    		##### index를 저장할 변수 선언
+        index = 0
+        for i in nums:
+        		##### target보다 작은 element의 갯수를 count
+            if(i < target):
+                index += 1 
+        ##### 갯수를 반환
+        return index
+```
+
+ Sol 2. Binary Search Algorithm ~ O(log n)
+
+
+
+---
+
+#### 문제 이름: Max Water Container
+
+(https://leetcode.com/problems/container-with-most-water/)
+
+
+
+#### 문제 요약:
+
+양의 정수가 담긴 Array가 주어진다. 해당 Array를 comb모양의 그래프로 그렸을 때, 가장 많은 물을 담을 수 있는 두 개의 값 쌍을 찾아 그 넓이를 반환하라. 
+
+![image-20191017171013947](/Users/blueStragglr/Library/Application Support/typora-user-images/image-20191017171013947.png)
+
+
+
+
+
+#### 풀이 해설:
+
+Sol 1. Brute Force Algorithm ~ O(n^2)
+
+***TIME LIMIT EXCEEDED!!***
+
+```
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+    		##### Area의 최대값을 저장할 변수 선언
+        maxAreaVal = 0;
+        
+        ##### Array 두 개로 matrix를 만들어 각각의 값 중 최대값을 탐색
+        for i in range(len(height)):
+            for j in range(i+1, len(height)):
+                maxAreaVal = max(maxAreaVal, (min(height[i], height[j])*(j-i)))
+        return maxAreaVal;
+```
+
+결과값은 올바르게 계산되었지만 펑하고 터졌습니다. 
+
+![image-20191017170903623](/Users/blueStragglr/Library/Application Support/typora-user-images/image-20191017170903623.png)
+
+
+
+
+
+ Sol 2. Two Pointer Search(Greedy Algorithm) ~ O(n)
+
+```
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+    		##### 맨 앞과 맨 뒤에 pointer로 사용할 변수 선언
+        frontIndex = 0
+        backIndex = len(height) - 1
+        
+        ##### 최댓값을 저장할 변수와 임시 저장 공간 변수 초기화
+        maxVal = 0;
+        maxBuffer = 0;
+        
+        for i in range(len(height)):
+        		##### 값을 계산해 봄 
+            maxBuffer = min(height[frontIndex], height[backIndex]) 
+												*(backIndex - frontIndex)
+            ##### 둘 중 더 큰값을 저장
+            maxVal = max(maxVal, maxBuffer)
+            ##### 앞쪽과 뒷쪽 값 중 크기가 작은 쪽의 index를 변화시킴(앞쪽은 +1, 뒷쪽은 -1)
+            ##### *해당 알고리즘의 핵심. 뒤에서 따로 증명.*
+            if (height[frontIndex] < height[backIndex]):
+                frontIndex += 1
+            else: 
+                backIndex -= 1
+                
+        ##### Loop에서 계산된 값들 중 최솟값을 반환
+        return maxVal;
+                
+```
+
+
+
+#### CLAIM ~ _앞쪽과 뒷쪽 값 중 크기가 작은 쪽의 index를 변화시키며 탐색_ 하면 올바르게 최댓값을 찾을 수 있는 것이 맞는가?
+
+그림을 이용해 표현 해 보겠습니다. 길이 n의 array가 주어져 있을 때, `frontIndex = i, backIndex = j` 인 상황에서의 탐색은 다음과 같이 나타낼 수 있습니다.
+
+![image-20191017174620378](/Users/blueStragglr/Library/Application Support/typora-user-images/image-20191017174620378.png)
+
+이 경우, i를 변화시키며 탐색하게 됩니다. 이 방법을 통해 올바른 값을 찾을 수 있다는 것을 증명하기 위해서는 ***i를 이동하며 탐색했을 때 최대값 쌍을 누락하지 않는다*** 라는 것을 증명하면 됩니다. 해당 명제는 ***i를 이동하지 않고 탐색할 수 있는 모든 쌍 중에 최대값 쌍이 존재하지 않는다*** 라는 대우명제를 증명함으로써 증명할 수 있습니다. 
+
+위 상황에서 i를 이동하지 않고 탐색하는 쌍은 `(i,i+1), (i,i+2), ... ,(i,j-1)` 입니다. 이 중 임의의 요소 `(i,k)~ where i+1<k<j-1`의 넓이는 `min(h[i], h[k]) * (k-i)` 로 계산할 수 있습니다. 
+
+이 때, `min(h[i], h[k]) < h[i]` 이므로, 임의의 요소에 대해 넓이 최대값은 `h[i](k-i)` 이 되며, 탐색할 쌍의 정의로부터 `k-i<j-i`이므로 ***i를 이동하지 않고 탐색할 수 있는 모든 쌍 중에는 `(i,j)` 쌍의 값보다 큰 값이 존재하지 않는다***는 것을 알 수 있습니다. 
+
+즉, i를 이동하지 않고 탐색할 수 있는 모든 쌍에 의한 값은  `(i,j)` 보다 작으므로, 최대값을 존재하지 않는다는 결론을 얻을 수 있습니다.
+
+
+
+두 알고리즘을 행렬을 이용해 비교 해 보면 조금 더 직관적인 이해를 할 수 있습니다. 
+
+![자산 1](/Users/blueStragglr/Screenshots/2x/자산 1.png)
+
+ 
+
+
 
 ---
 
