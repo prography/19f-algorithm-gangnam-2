@@ -9,10 +9,8 @@
 #### 전체적인 진행 방식
 
 - 매 주 정해진 문제를 온라인으로 학습합니다
-  - 전체적인 학습의 방향은 코딩테스트 준비입니다.
-  - 어떤, 몇 문제를 풀지는 정해야 해요!
-    - leetcode.com (영어, 다른 강남팀도 같은곳의 문제를 풀고 있어서 공유 가능)
-    - programmers.co.kr (한글, 주제별 분류, 문제가 많지는 않음)
+  - 전체적인 학습의 방향은 **코딩테스트** 준비입니다.!
+  - leetcode.com (영어, 다른 강남팀도 같은곳의 문제를 풀고 있어서 공유 가능)
 - 매 주 1회 오프라인으로 만나 리뷰와 세미나를 진행합니다.
   - 누가 어떤 문제를 리뷰할지는 당일에 뽑기를 통해 정합니다.
   - 모임 장소는 **강남**, 시간은 **매주 목요일 오후 7시** 입니다.
@@ -32,7 +30,7 @@
   - Queue
   - Dynamic Programming - 1
   - Dynamic Programming - 2
-  - Tree, String
+  - Heap, Tree
   - Binary Search
   - DFS & BFS
   - Hash Table
@@ -45,9 +43,11 @@
 
 - 매주 목요일 오후 7시
 - 강남 인근 스터디룸(장소는 매번 공지)
-- 지각비는 1분에 100원, 최대 2000원이에요. 
+- 지각비는 1분에 200원, 최대 2000원이에요. 
   - 쌓인 지각비는 맛난 밥이나 스터디룸 대여비에 보탬이 될 거에요.
 - 결석시 문서만 잘 업데이트 하기!
+- 세미나: 경태 - 지철 - 희연 - 성환 순으로 세미나 준비해서 발표
+  - 주제는 각자 알아서 선정!
 
 
 
@@ -78,19 +78,27 @@
 
 #### 2019.10.17 (목)
 
-참석자: 
+참석자: 민경태, 신성환, 황희연
 
-풀이한 문제:
+- 풀이한 문제:
 
-- 1
-- 2
-- 3
-- 4
+Two sum(https://leetcode.com/problems/two-sum/)
+Remove duplicates from array(https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+Remove Element(https://leetcode.com/problems/remove-element/)
+Search Insert Position(https://leetcode.com/problems/search-insert-position/) 
 
-세미나:
+First missing positive(https://leetcode.com/problems/first-missing-positive/)
+Rotate Image(https://leetcode.com/problems/rotate-image/)
+Next Permutation(https://leetcode.com/problems/next-permutation/)
+Container With Most Water(https://leetcode.com/problems/container-with-most-water/) 
 
-- 큐
-- 스택
+세미나(개념당 최대 10분, 형식 자유):
+
+- 없음!
+
+
+
+
 
 
 
