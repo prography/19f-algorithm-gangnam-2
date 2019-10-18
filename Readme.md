@@ -20,10 +20,9 @@
 
 #### 어떤 문제로 공부하나요?
 
-- leetcode.com에서 매주 주제와 문제를 선정해서 풀이해요.
-- 매주 쉬운 문제 4문제, 난이도 있는 문제 4문제를 풀어요.
-  - 각 오프라인 세션마다 각자 쉬운 문제(easy)와 난이도 있는 문제(주제에 따라 medium이나 hard) 한문제씩을 리뷰합니다.
-- 스터디를 진행하는 동안 아래와 같은 주제들을 다뤄요.
+- leetcode.com에서 매주 쉬운 문제 4문제, 난이도 있는 문제 4문제를 풉니다.
+- 각 오프라인 세션마다 각자 쉬운 문제(easy)와 난이도 있는 문제(주제에 따라 medium이나 hard) 한문제씩을 리뷰합니다.
+- 스터디를 진행하는 동안 아래와 같은 주제들을 순서대로 다룹니다. 
   - Array - 1
   - Array - 2, Math
   - Stack
@@ -42,12 +41,12 @@
 #### 오프라인 모임
 
 - 매주 목요일 오후 7시
-- 강남 인근 스터디룸(장소는 매번 공지)
-- 지각비는 1분에 200원, 최대 2000원이에요. 
-  - 쌓인 지각비는 맛난 밥이나 스터디룸 대여비에 보탬이 될 거에요.
-- 결석시 문서만 잘 업데이트 하기!
-- 세미나: 경태 - 지철 - 희연 - 성환 순으로 세미나 준비해서 발표
-  - 주제는 각자 알아서 선정!
+- 강남 인근 카페
+  - 세미나 - 리뷰 - 기타 토의 - 다음 주 문제 정하기 순서로 진행합니다.
+    - 리뷰의 경우, 쉬운 문제는 각 5분, 어려운 문제는 각 7분의 limit을 두고 진행합니다. ***시간 초과는 허용되지 않습니다. 유의해주세요!***
+- 지각비는 1분에 200원, 최대 2000원입니다.  
+  - 쌓인 지각비는 맛난 밥이나 스터디룸 대여비에 보탬이 될 예정입니다.
+- 결석시 문서만 잘 업데이트 해 주세요!
 
 
 
@@ -55,8 +54,8 @@
 
 #### 개인별 기록하기
 
-- github에 MarkDown파일 형식으로 기록.
-- 각자 업로드되어 있는 템플릿을 이용하여 작성 및 업로드
+- github에 MarkDown파일 형식으로 기록하여 push합니다. 
+- 각자 업로드되어 있는 템플릿을 이용하여 작성 및 업로드합니다. 필수 내용은 아래와 같습니다. 
   - 문제 요약
   - 풀이 코드
   - 코드 해설
@@ -66,9 +65,18 @@
 #### 모임 전체 기록하기
 
 - 신성환(blueStragglr)이 합니다!
-- 누구 왔는지, 무슨 문제 풀고 리뷰했는지, 어떤 내용 세미나 했는지
-- 구체적인 내용은 작성하지 않으니, 세미나를 원한다면 꼭 참석하도록 해요 :)
+- 누구 왔는지, 무슨 문제 풀고 리뷰했는지, 어떤 내용 세미나 했는지를 작성합니다. 
+- 진행한 컨텐츠의 구체적인 내용은 작성하지 않으니, 세미나를 원한다면 꼭 참석하도록 해요 :)
   - 세미나 내용을 공유하고 싶은 경우 깃허브에 별도로 공유합니다. 
+
+
+
+#### 세미나
+
+- 각 주 한명씩, 원하는 주제를 해당 주의 문제 중에서 찾아 발표합니다.
+- 10분 이내로 발표를 마칩니다.
+- 형식은 자유입니다. (PPT, 그림 등 준비 필수 아님!)
+- 10/24 목요일부터 경태-지철-희연-성환 순으로 cyclic하게 돌면서 발표합니다. 
 
 
 
@@ -82,19 +90,17 @@
 
 - 풀이한 문제:
 
-Two sum(https://leetcode.com/problems/two-sum/)
-Remove duplicates from array(https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
-Remove Element(https://leetcode.com/problems/remove-element/)
-Search Insert Position(https://leetcode.com/problems/search-insert-position/) 
+  - Two sum(https://leetcode.com/problems/two-sum/)
+  - Remove duplicates from array(https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+  - Remove Element(https://leetcode.com/problems/remove-element/)
+  - Search Insert Position(https://leetcode.com/problems/search-insert-position/) 
+  - First missing positive(https://leetcode.com/problems/first-missing-positive/)
+  - Rotate Image(https://leetcode.com/problems/rotate-image/)
+  - Next Permutation(https://leetcode.com/problems/next-permutation/)
+  - Container With Most Water(https://leetcode.com/problems/container-with-most-water/) 
 
-First missing positive(https://leetcode.com/problems/first-missing-positive/)
-Rotate Image(https://leetcode.com/problems/rotate-image/)
-Next Permutation(https://leetcode.com/problems/next-permutation/)
-Container With Most Water(https://leetcode.com/problems/container-with-most-water/) 
-
-세미나(개념당 최대 10분, 형식 자유):
-
-- 없음!
+- 세미나(개념당 최대 10분, 형식 자유):
+  - 이번 주는 생략합니다. 
 
 
 
