@@ -211,6 +211,183 @@ public:
 
 ## Medium Level Problem 
 
+<br>
+
+### 4 Sum
+
+<br>
+
+- 문제 요약:
+  - 특정 배열 요소 4개를 합한 값이 타겟값일 경우의 해당 4개 배열요소를 출력하는 문제 
+
+<br>
+
+- 풀이 해설: 1) 4중 for문 사용하여 풀이 가능 (brute Force)
+~~~ C++
+/// MARK: - 4SUM
+#include <vector>
+#include <set>
+using namespace std;
+
+/// MARK: - 4중포문 통과답안, 5.02%, 더 좋은 방법을 찾아봐야 함
+class theFourSum {
+public:
+    vector<vector<int>> fourSum(vector<int>& nums, int target) {
+        if(nums.size()<4) return {};
+        set<vector<int>> ST;
+        
+        sort(nums.begin(), nums.end());
+        vector<vector<int>> Ans;
+        // 4중 for문을 사용하여 전체 경우의 수에 따른 타겟 합을 구할 수 있다. 
+        for(int i=0; i<nums.size()-3; i++) {
+            for(int j=i+1; j<nums.size()-2; j++) {
+                for(int k=j+1; k<nums.size()-1; k++) {
+                    for(int l=k+1; l<nums.size(); l++) {
+                        if(nums[i]+nums[j]+nums[k]+nums[l]==target) {
+                            vector<int> temp;
+                            temp = {nums[i], nums[j], nums[k], nums[l]};
+                            ST.insert(temp);
+                        }
+                    }
+                }
+            }
+        }
+        for(auto s: ST) Ans.push_back(s);
+        return Ans;
+    }
+};
+~~~
+
+<br>
+
+### Sub Sets
+
+<br>
+
+- 문제 요약:
+  - 특정 배열 요소의 전체 부분집합을 출력하는 문제 
+
+<br>
+
+- 풀이 해설: 재귀함수를 통해 풀이할 수 있다. + 비트마스크 방법 존재 
+~~~ C++
+/// MARK: - SubSets
+//  - 재귀적 용법 활용 부분집합 출력 문제 통과답안
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+class SubSets {
+public:
+    void go(int count, vector<int> C, vector<int> nums, vector<vector<int>> &ANS) {
+        // 부분집합 가능 요소를 모드 훑었을 때마다 부분집합의 경우의 수를 출력하고 해당 재귀함수를 순차적으로 종료한다.
+        if(count==C.size()) {
+            vector<int> Ans;
+            for(int i=0; i<C.size(); i++) {
+                if(C[i]==1) Ans.push_back(nums[i]);
+            }
+            ANS.push_back(Ans);
+            return;
+        }
+        
+        C[count]=0;
+        // 부분집합에서 해당 인덱스 요소를 사용 안할 경우,
+        go(count+1,C,nums,ANS);
+        C[count]=1;
+        // 부분집합에서 해당 인덱스 요소를 사용 할 경우를 분리하여 경우의 수를 출력한다.
+        go(count+1,C,nums,ANS);
+    }
+    
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<vector<int>> Ans;
+        vector<int> C(nums.size(),0);
+        go(0,C,nums,Ans);
+        return Ans;
+    }
+};
+~~~
+
+<br>
+
+
+### Longest Palindromic Substring
+- 가장 긴 펠린드롬 부분문자열 문제 
+- (주소)  https://leetcode.com/problems/longest-palindromic-substring/submissions/
+
+<br>
+
+- 문제 요약:
+  - 가장 긴 펠린드롬 문자열(앞뒤 대칭 문자열)을 구해서 출력하는 문제 
+
+<br>
+
+- 풀이 해설: Manacher's Algorithm을 사용해서 풀이할 수 있다. 
+
+~~~ C++
+/// MARK: - 가장 긴 펠린드롬 부분 문자열 문제 : Manacher's Algorithm Problem
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> A(1000000,0);
+class LongestPalindromicSubstring {
+public:
+
+    /// MARK: manacherAlgorithm
+    string manacherAlgorithm(string S) {
+        
+        int r=0,p=0;
+        int sum=0,mxIdx=0;
+        string Ans = "";
+        for(int i=0; i<S.length(); i++) {
+            if(i <= r) A[i] = min(A[2*p-i],r-i);
+            else A[i] = 0;
+            
+            /// 펠린드롬 문자열 여지가 있는 인덱스를 기준으로 펠린드롬 가능 범위를 지정한다.
+            while(i-A[i]-1 >= 0 && i+A[i]+1 <S.length() && S[i-A[i]-1]==S[i+A[i]+1]) A[i]++;
+            
+            /// 이미 식별된 펠린드롬 문자열 범위는 다시 탐색할 필요가 없으므로 건너 뛴다.
+            if(r < i+A[i]) {
+                r = i+A[i];
+                p = i;
+            }
+            if(sum < A[i]) {
+                sum = A[i];
+                mxIdx = i;
+            }
+        }
+
+        for(int i=max(mxIdx-A[mxIdx],0); i<min(mxIdx+A[mxIdx],(int)S.length()-1); i++) {
+            Ans += S[i];
+        }
+
+        return Ans;
+    }
+    
+    string longestPalindrome(string s) {
+        
+        // "bb" 같은 짝수 개의 펠린드롬 부분문자열까지 식별하기 위해 문자열 사이에 '@' 문자를 임의로 끼워서 manacher's Algorithm을 수행한다.
+        string S = "@";
+        for(int i=0; i<s.length(); i++) {
+            S+=s[i];
+            S+='@';
+        }
+
+        string ANS = manacherAlgorithm(S);
+        string Ans = "";
+        
+        /// '@' 문자를 제외한 가장 긴 펠린드롬 부분문자열을 반환한다.
+        for(auto s: ANS) {
+            if(s!='@') Ans+=s;
+        }
+        return Ans;
+    }
+};
+~~~
+
+<br>
+
 ### Rotate Image
 - (주소)  https://leetcode.com/problems/rotate-image/
 
