@@ -146,7 +146,7 @@ class Solution:
 
 양의 정수가 담긴 Array가 주어진다. 해당 Array를 comb모양의 그래프로 그렸을 때, 가장 많은 물을 담을 수 있는 두 개의 값 쌍을 찾아 그 넓이를 반환하라. 
 
-![image-20191017171013947](/Users/blueStragglr/Library/Application Support/typora-user-images/image-20191017171013947.png)
+![image](https://user-images.githubusercontent.com/44422495/67058168-980ab780-f18e-11e9-81f6-a7087d5ae9cd.png)
 
 
 
@@ -173,7 +173,7 @@ class Solution:
 
 결과값은 올바르게 계산되었지만 펑하고 터졌습니다. 
 
-![image-20191017170903623](/Users/blueStragglr/Library/Application Support/typora-user-images/image-20191017170903623.png)
+![image](https://user-images.githubusercontent.com/44422495/67058307-2ed77400-f18f-11e9-83aa-c8cd54cd2bca.png)
 
 
 
@@ -216,7 +216,7 @@ class Solution:
 
 그림을 이용해 표현 해 보겠습니다. 길이 n의 array가 주어져 있을 때, `frontIndex = i, backIndex = j` 인 상황에서의 탐색은 다음과 같이 나타낼 수 있습니다.
 
-![image-20191017174620378](/Users/blueStragglr/Library/Application Support/typora-user-images/image-20191017174620378.png)
+![image](https://user-images.githubusercontent.com/44422495/67058303-2848fc80-f18f-11e9-931d-b4a5eac013a4.png)
 
 이 경우, i를 변화시키며 탐색하게 됩니다. 이 방법을 통해 올바른 값을 찾을 수 있다는 것을 증명하기 위해서는 ***i를 이동하며 탐색했을 때 최대값 쌍을 누락하지 않는다*** 라는 것을 증명하면 됩니다. 해당 명제는 ***i를 이동하지 않고 탐색할 수 있는 모든 쌍 중에 최대값 쌍이 존재하지 않는다*** 라는 대우명제를 증명함으로써 증명할 수 있습니다. 
 
@@ -228,13 +228,12 @@ class Solution:
 
 
 
-두 알고리즘을 행렬을 이용해 비교 해 보면 조금 더 직관적인 이해를 할 수 있습니다. 
+두 알고리즘을 행렬을 이용해 비교 해 보면 조금 더 직관적인 이해를 할 수 있습니다.
 
-![자산 1](/Users/blueStragglr/Screenshots/2x/자산 1.png)
+ ![image](https://user-images.githubusercontent.com/44422495/67058173-a3f67980-f18e-11e9-98cb-f7b1d8134081.png)
 
- 
+Brute Algorithm의 경우 모든 요소를 탐색하기 때문에 O(n^2)만큼의 결과값을 탐색해야 하는 반면, Two pointer algorithm은 명제 ***i를 이동하지 않고 탐색할 수 있는 모든 쌍 중에는 `(i,j)` 쌍의 값보다 큰 값이 존재하지 않는다*** 를 기반으로 한 행 혹은 한 열씩을 건너뛰기 때문에 한 열 혹은 한 행 중에 한개의 요소만 탐색하고 나머지를 배제할 수 있게 됩니다. 따라서 O(n) 시간 동안에 탐색을 마칠 수 있게 됩니다. 
 
 
 
 ---
-
