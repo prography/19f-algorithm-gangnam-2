@@ -260,6 +260,86 @@ public:
 
 <br>
 
+~~~ swift
+/// MARK: - 4중포문 + 예외처리 일부 추가
+class Solution {
+public:
+    vector<vector<int>> fourSum(vector<int>& nums, int target) {
+        if(nums.size()<4) return {};
+        set<vector<int>> ST;
+        
+        sort(nums.begin(), nums.end());
+        vector<vector<int>> Ans;
+        // 4중 for문을 사용하여 전체 경우의 수에 따른 타겟 합을 구할 수 있다. 
+        for(int i=0; i<nums.size()-3; i++) {
+            if(target>=0 && nums[i]>target) break;
+            if(target<0 && nums[i]>=0) break;
+            for(int j=i+1; j<nums.size()-2; j++) {
+                int twoSum = nums[i] + nums[j];
+                if(target>=0 && twoSum>target) break;
+                if(target<0 && twoSum>=0) break;
+                for(int k=j+1; k<nums.size()-1; k++) {
+                    int threeSum = nums[i]+nums[j]+nums[k];
+                    if(target>=0 && threeSum>target) break;
+                    if(target<0 && threeSum>=0) break;
+                    for(int l=k+1; l<nums.size(); l++) {
+                        int sum = nums[i]+nums[j]+nums[k]+nums[l];
+                        if(sum==target) {
+                            vector<int> temp;
+                            temp = {nums[i], nums[j], nums[k], nums[l]};
+                            ST.insert(temp);
+                        } else if((sum>target && target>=0)
+                                 || (sum>=0 && target<0)) break;
+                    }
+                }
+            }
+        }
+        for(auto s: ST) Ans.push_back(s);
+        return Ans;
+    }
+};
+~~~
+
+~~~ Swift 
+/// MARK: - 다른 사람 모범답안 (예외처리 보완)
+class Solution {
+public:
+    vector<vector<int>> fourSum(vector<int>& nums, int target) {
+        int n = nums.size();
+        vector<vector<int>>res;
+        if(n < 4)   return res;
+        sort(nums.begin(), nums.end());
+        for(int i = 0; i < n-3; i++){
+            if(i > 0 && nums[i] == nums[i-1])   continue;
+            if(nums[i] + nums[i+1] + nums[i+2] + nums[i+3] > target)    break;
+            if(nums[i] + nums[n-1] + nums[n-2] + nums[n-3] < target)    continue;
+            for(int j = i + 1; j < n-2; j++){
+                if(j > i+1 && nums[j] == nums[j-1])   continue;
+                if(nums[i] + nums[j] + nums[j+1] + nums[j+2] > target)    break;
+                if(nums[i] + nums[j] + nums[n-1] + nums[n-2] < target)    continue;
+                int left = j+1, right = n-1;
+                while(left < right){
+                    int sum = nums[i] + nums[j] + nums[left] + nums[right];
+                    if(sum < target)
+                        left++;
+                    else if(sum > target)
+                        right--;
+                    else{
+                        res.push_back({nums[i], nums[j], nums[left], nums[right]});
+                        left++, right--;
+                        while(left < right && res.back()[2] == nums[left]) left++;
+                        while(left < right && res.back()[3] == nums[right]) right--;
+                    }
+                }
+            }
+        }
+        return res;
+    }
+};
+~~~
+
+<br>
+
 ### Sub Sets
 
 <br>
