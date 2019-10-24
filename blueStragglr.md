@@ -48,54 +48,56 @@ def solution(s):
 
 ​     
 
-    def getShortenWord(originalStr: str, partSize: int) -> str:
-    		##### 분해된 조각들을 담을 array 초기화
-        partialArr = []
-        
-        ##### 결과를 저장할 string 초기화
-        shortenWord = ''
-        
-        ##### string을 정해진 크기로 잘라서 저장하는 루프
-        ##### 전체 string 길이를 조각의 크기로 나눈 뒤 소숫점 이하 올림
-        for i in range(math.ceil(len(originalStr)/partSize)):
-            ##### 읽기 편하게 줄을 바꾼 것으로, 실제로는 오작동할 수 있음. (원문은 띄어쓰기 x)
-            ##### python의 parsing method를 이용하여 분해하여 저장
-            partialArr.append(
-            	originalStr[i*partSize:min((i+1)*partSize, len(originalStr))]
-            )
+```python
+def getShortenWord(originalStr: str, partSize: int) -> str:
+		##### 분해된 조각들을 담을 array 초기화
+    partialArr = []
     
-        ##### buffer에는 직전에 확인한 substring의 정보를 담음
-        buffer = ''
-        
-        ##### count에는 현재 substring이 반복된 횟수를 담음
-        count = 1
-        
-        ##### 분해된 모든 조각에 대해서 압축 프로세스 실행
-        for subStr in partialArr:
-        
-        		##### 이전에 나왔던 substring이 반복된 경우 count만 업데이트 하고 넘어감
-            if(buffer == subStr):
-                count += 1 
-                
-            ##### 이전에 나온 substring이 반복되지 않은 경우, 이전까지 반복된 정보를 shortenWord에 저장하고
-            ##### 현재 substring에 대한 정보(buffer, count)를 업데이트 
-            else:
-                if(not(buffer=='')):
-                    if(count == 1):
-                        count = ''
-                    shortenWord += str(count) + buffer
-                count = 1
-                buffer = subStr   
-                
-        ##### 마지막 substring은 위 루프에서 저장되지 않으므로 append를 종료하는 과정 수행
-        ##### 마지막 substring이 반복된 것이 아닌 경우 substring(buffer)만 추가
-        if(count==1):
-            shortenWord += buffer
-        ##### 반복된 substring인 경우 count와 함께 추가 
-        else:
-            shortenWord += str(count) + buffer  
+    ##### 결과를 저장할 string 초기화
+    shortenWord = ''
+    
+    ##### string을 정해진 크기로 잘라서 저장하는 루프
+    ##### 전체 string 길이를 조각의 크기로 나눈 뒤 소숫점 이하 올림
+    for i in range(math.ceil(len(originalStr)/partSize)):
+        ##### 읽기 편하게 줄을 바꾼 것으로, 실제로는 오작동할 수 있음. (원문은 띄어쓰기 x)
+        ##### python의 parsing method를 이용하여 분해하여 저장
+        partialArr.append(
+        	originalStr[i*partSize:min((i+1)*partSize, len(originalStr))]
+        )
+
+    ##### buffer에는 직전에 확인한 substring의 정보를 담음
+    buffer = ''
+    
+    ##### count에는 현재 substring이 반복된 횟수를 담음
+    count = 1
+    
+    ##### 분해된 모든 조각에 대해서 압축 프로세스 실행
+    for subStr in partialArr:
+    
+    		##### 이전에 나왔던 substring이 반복된 경우 count만 업데이트 하고 넘어감
+        if(buffer == subStr):
+            count += 1 
             
-        return shortenWord
+        ##### 이전에 나온 substring이 반복되지 않은 경우, 이전까지 반복된 정보를 shortenWord에 저장하고
+        ##### 현재 substring에 대한 정보(buffer, count)를 업데이트 
+        else:
+            if(not(buffer=='')):
+                if(count == 1):
+                    count = ''
+                shortenWord += str(count) + buffer
+            count = 1
+            buffer = subStr   
+            
+    ##### 마지막 substring은 위 루프에서 저장되지 않으므로 append를 종료하는 과정 수행
+    ##### 마지막 substring이 반복된 것이 아닌 경우 substring(buffer)만 추가
+    if(count==1):
+        shortenWord += buffer
+    ##### 반복된 substring인 경우 count와 함께 추가 
+    else:
+        shortenWord += str(count) + buffer  
+        
+    return shortenWord
+```
 
 ---
 
@@ -117,7 +119,7 @@ Sorting 된 int Array와 target(int)이 주어진다. target이 포함되어있�
 
 Sol 1. Brute Force Algorithm ~ O(n)
 
-```
+```python
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
     		##### index를 저장할 변수 선언
@@ -181,7 +183,7 @@ class Solution:
 
  Sol 2. Two Pointer Search(Greedy Algorithm) ~ O(n)
 
-```
+```python
 class Solution:
     def maxArea(self, height: List[int]) -> int:
     		##### 맨 앞과 맨 뒤에 pointer로 사용할 변수 선언
@@ -220,7 +222,7 @@ class Solution:
 
 이 경우, i를 변화시키며 탐색하게 됩니다. 이 방법을 통해 올바른 값을 찾을 수 있다는 것을 증명하기 위해서는 ***i를 이동하며 탐색했을 때 최대값 쌍을 누락하지 않는다*** 라는 것을 증명하면 됩니다. 해당 명제는 ***i를 이동하지 않고 탐색할 수 있는 모든 쌍 중에 최대값 쌍이 존재하지 않는다*** 라는 대우명제를 증명함으로써 증명할 수 있습니다. 
 
-위 상황에서 i를 이동하지 않고 탐색하는 쌍은 `(i,i+1), (i,i+2), ... ,(i,j-1)` 입니다. 이 중 임의의 요소 `(i,k)~ where i+1<k<j-1`의 넓이는 `min(h[i], h[k]) * (k-i)` 로 계산할 수 있습니다. 
+위 상황에서 i를 이동하지 않고 탐색하는 쌍은 `(i,i+1), (i,i+2), ... ,(i,j-1)` 입니다. 이 중 임의의 요소 `(i,k),   where i+1<k<j-1`의 넓이는 `min(h[i], h[k]) * (k-i)` 로 계산할 수 있습니다. 
 
 이 때, `min(h[i], h[k]) < h[i]` 이므로, 임의의 요소에 대해 넓이 최대값은 `h[i](k-i)` 이 되며, 탐색할 쌍의 정의로부터 `k-i<j-i`이므로 ***i를 이동하지 않고 탐색할 수 있는 모든 쌍 중에는 `(i,j)` 쌍의 값보다 큰 값이 존재하지 않는다***는 것을 알 수 있습니다. 
 
@@ -230,10 +232,82 @@ class Solution:
 
 두 알고리즘을 행렬을 이용해 비교 해 보면 조금 더 직관적인 이해를 할 수 있습니다.
 
- ![image](https://user-images.githubusercontent.com/44422495/67058173-a3f67980-f18e-11e9-98cb-f7b1d8134081.png)
+ ![image](https://user-images.githubusercontent.com/44422495/67138288-e5b11e00-f27b-11e9-8d5c-63437811a6e3.png)
 
 Brute Algorithm의 경우 모든 요소를 탐색하기 때문에 O(n^2)만큼의 결과값을 탐색해야 하는 반면, Two pointer algorithm은 명제 ***i를 이동하지 않고 탐색할 수 있는 모든 쌍 중에는 `(i,j)` 쌍의 값보다 큰 값이 존재하지 않는다*** 를 기반으로 한 행 혹은 한 열씩을 건너뛰기 때문에 한 열 혹은 한 행 중에 한개의 요소만 탐색하고 나머지를 배제할 수 있게 됩니다. 따라서 O(n) 시간 동안에 탐색을 마칠 수 있게 됩니다. 
 
 
 
 ---
+
+#### Combination Sum
+
+(https://leetcode.com/problems/combination-sum/)
+
+
+
+#### 문제 요약:
+
+해당 문제는 주어진 숫자 배열 내의 숫자들을 조합해 target의 값을 만들어낼 수 있는 모든 숫자쌍을 찾는 문제이다. 즉, 아래와 같은 input-ouput 쌍을 구하는 문제이다. 
+
+> input: candidates = [2,3,6,7], target = 7,
+> output: [ [7], [2,2,3] ]
+>
+> 즉, 2,3,6,7 중 임의의 숫자를 임의의 횟수만큼 사용하여 target을 만드는 방법을 탐색하는 문제입니다. 
+>
+> 사용 횟수에는 제한이 없습니다. 
+
+
+
+#### 풀이 해설:
+
+```python
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        ##### 재귀함수를 실행하여 결과를 얻음.
+        ##### 재귀함수에 필요한 변수가 기존 함수와 차이가 있어 별도 함수로 작성
+        return getAvailableCombination(candidates, target, [])
+        
+def getAvailableCombination(candidates: List[int], targetRemain: int, stacked: List[int]) -> List[List[int]]:
+  
+  	##### 값을 깎아 나가며 0이 되면 반환하고, 0 이하가 되면 케이스를 종료해버리도록 재귀를 구성.
+    if(targetRemain < 0):
+        return [[]]
+    if(targetRemain == 0):
+        return [stacked]
+    
+    ##### 현재 loop에 담길 정답과, 임시로 스택을 쌓을 변수를 초기화
+    answer = []
+    tmpStack = stacked[:]
+    tmpStorage = []
+    
+    
+    for candidate in candidates:
+        ##### input으로 들어온 stacked 변수가 비어있지 않고
+        if(stacked!=[]):
+            ##### candidate 요소가 stacked 변수의 마지막 값보다 작다면 그냥 패스.
+            ##### 탐색한 요소를 중복해서 탐색하는 것을 방지하기 위함  
+            if(candidate < stacked[-1]):
+                continue
+                
+        ##### tmpStack 변수에 candidate를 추가하여, 새로운 재귀함수 실행 후 결과 저장
+        tmpStack.append(candidate)
+        tmpStorage = getAvailableCombination(candidates, targetRemain - candidate, tmpStack)
+        
+        ##### 반환받은 결과가 유효하다면 ([[]]가 아니라면) 정답에 추가
+        if tmpStorage != [[]]:
+            answer += tmpStorage
+            
+        ##### Shallow copy로 초기화. 
+        tmpStack = stacked[:]
+        
+    return answer
+   
+```
+
+
+
+해당 문제는 재귀함수를 이용하여 해결하였습니다. 피보나치 수열을 재귀함수로 해결하는 것과 비슷한 방식으로, target에서 candidate를 뺀 값으로 재귀함수를 다시 실행함으로써 문제를 해결하였습니다. 다만, 피보나치의 경우 항상 두 개의 재귀함수만 발생하므로 반복문 없이 재귀함수를 만들 수 있는 반면, 해당 문제의 경우 여러 가지 경우의 재귀함수를 모두 계산 해 주어야 하므로 상당한 공간복잡도(O(n^2logn))가 발생하게 됩니다. 
+
+
+
