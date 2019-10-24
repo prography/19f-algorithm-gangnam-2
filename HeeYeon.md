@@ -4,7 +4,7 @@
 
 
 
-#### Remove duplicates from array
+### Remove duplicates from array
 
 (주소)https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 
@@ -46,7 +46,7 @@ public:
 ```
 ---
 
-#### Rotate Image
+### Rotate Image
 
 (주소)https://leetcode.com/problems/rotate-image/
 
@@ -81,4 +81,50 @@ public:
 };
 ```
 ---
+
+
+### Subsets
+
+(주소)https://leetcode.com/problems/subsets/
+
+
+
+#### 문제 요약:
+가능한 부분집합들 구하기
+(공집합도 포함)
+
+
+#### 풀이 해설:
+DFS 백트래킹 이용
+
+```c++
+class Solution {
+public:
+    vector<int> ele;
+    vector<vector<int>> answer;
+    int n;
+    void dfs(int x, vector<int>& nums){
+        for(int j=x+1;j<n;j++){
+            ele.push_back(nums[j]);
+            answer.push_back(ele);
+            dfs(j, nums);
+            ele.pop_back();
+        }
+    }
+    vector<vector<int>> subsets(vector<int>& nums) {
+        n=nums.size();
+        answer.push_back(ele);  //공집합
+        
+        for(int i=0;i<n;i++){
+            ele.push_back(nums[i]);
+            answer.push_back(ele);
+            dfs(i, nums);
+            ele.pop_back();
+        }
+        return answer;
+    }
+};
+```
+---
+
 
