@@ -309,5 +309,112 @@ def getAvailableCombination(candidates: List[int], targetRemain: int, stacked: L
 
 해당 문제는 재귀함수를 이용하여 해결하였습니다. 피보나치 수열을 재귀함수로 해결하는 것과 비슷한 방식으로, target에서 candidate를 뺀 값으로 재귀함수를 다시 실행함으로써 문제를 해결하였습니다. 다만, 피보나치의 경우 항상 두 개의 재귀함수만 발생하므로 반복문 없이 재귀함수를 만들 수 있는 반면, 해당 문제의 경우 여러 가지 경우의 재귀함수를 모두 계산 해 주어야 하므로 상당한 공간복잡도(O(n^2logn))가 발생하게 됩니다. 
 
+---
 
+#### Word Ladder II
+
+(https://leetcode.com/problems/word-ladder-ii/)
+
+
+
+#### 문제 요약:
+
+해당 문제는 주어진 string 배열 내에서 한 글자씩만 바꾸며 hopping하여 시작 단어에서 끝 단어에 도착할 수 있는 최단경로를 찾는 문제이다. 아래 예를 살펴보자.  
+
+> input: 
+>
+> hot
+> cog
+> ["hit","hat","lot", "log","cog"]
+>
+> output: [[ "hot", "hit", "lot", "log", "cog"], [ "hot", "hat", "lot", "log", "cog"]]
+
+즉, 위와 같이 한글자씩만 바꾸며 다른 단으로 넘어갔을 때, 최종 단어에 도착할 수 있는 가장 짧은 sequence만을 반환하는 문제이다. 여러 경로가 존재할 수 있으며, 경로가 존재하지 않는 경우에는 빈 array를 반환한다. 
+
+
+
+
+
+#### 풀이 해설:
+
+*조금 깁니다!
+
+```python
+class Solution:
+    def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List[List[str]]:
+      
+        ##### 전처리 ~ Matrix 만들기
+        ##### 단어간 이동 가능 여부를 쉽게 처리하기 위해 시작 단어를 맨 앞으로 가져오고 끝 단어를 맨 뒤로 보냅니다. 
+        wordMatrix = []
+        if beginWord in wordList:
+            wordList.remove(beginWord)    
+        wordList.insert(0, beginWord)
+        if endWord not in wordList:
+            return []
+        wordList.remove(endWord)
+        wordList.append(endWord)        
+        
+        ##### 단어 사이즈를 미리 변수로 저장
+        strSize = len(wordList[0])
+        
+        ##### 각 단어마다 다른 char 갯수를 저장하는 matrix 생성. 
+        ##### M(i,j) = i번째 단어와 j번째 단어의 다른 char 갯수.
+        for i in range(len(wordList)):
+            wordMatrix.append([])
+            for j in range(len(wordList)):
+                wordMatrix[i].append(0)
+                for k in range(strSize):
+                    if (wordList[i][k] != wordList[j][k]):
+                        wordMatrix[i][j] += 1
+                        
+        ##### 가능한 propagation을 저장할 변수 초기화.
+        ##### 첫 단어에서 하나도 이동할 수 있는 경우가 없는 경우는 바로 return. 
+        availablePropagation = []
+        availablePropagationBuffer = []
+        for i in range(len(wordList)):
+            if(wordMatrix[i][0] == 1):
+                availablePropagation.append([i])
+        if (availablePropagation == []):
+            return []
+            
+        ##### 한 번 hoping에 바로 도달할 수 있는 경우에도, 이후 loop를 바로 지나가도록 설정해줌. 
+        valueFounded = False
+        for item in availablePropagation:
+            if (wordList[item[0]] == endWord):
+                valueFounded = True
+                availablePropagation = [item]
+                break
+        
+        ##### Matrix를 n번 hoping하면서 endword에 도달하는 경우 바로 종료. 
+        ##### 계속해서 가능한 경로들을 쌓아나가는 방식으로 loop를 돌림. 
+        for i in range(1, len(wordList)):
+            if (valueFounded == True):
+                break
+            for propIndex in range(len(availablePropagation)):
+                propItem = availablePropagation[propIndex]
+                for j in range(len(wordList)):
+                    if(wordMatrix[propItem[-1]][j]==1 and (j not in propItem) and j != 0):
+                        availablePropagationBuffer.append(propItem + [j])
+                        if (wordList[j] == endWord):
+                            valueFounded = True
+            availablePropagation = availablePropagationBuffer
+            availablePropagationBuffer = []
+            
+        answer = []
+        answerSet = []
+        
+        ##### 최단경로만을 남기고 나머지 탐색중이던 가능성들을 삭제. 
+        for indexItem in availablePropagation:
+            if(wordList[indexItem[-1]] == endWord):
+                answer.append(beginWord)
+                for wordIndex in indexItem:
+                    answer.append(wordList[wordIndex])
+            if(answer != []):
+                answerSet.append(answer)
+                answer = []
+            
+        return answerSet
+```
+
+해당 문제는 Matrix를 구성한 뒤, 가능한 pathway들을 모두 탐색하다 마지막 단어에 도달하는 경우 종료하도록 구성하였다. 탐색 자체는 O(n)에 마무리할 수 있지만 Matrix를 생성하는 탐색이 O(n^2)를 요구하게 된다. 
 
