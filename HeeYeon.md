@@ -83,7 +83,7 @@ public:
 ---
 
 
-### Subsets
+### 78. Subsets
 
 (주소)https://leetcode.com/problems/subsets/
 
@@ -122,6 +122,69 @@ public:
             ele.pop_back();
         }
         return answer;
+    }
+};
+```
+---
+
+
+### 228. Summary Ranges
+
+(주소)https://leetcode.com/problems/summary-ranges/
+
+
+
+#### 문제 요약:
+Input:  [0,1,2,4,5,7]
+
+Output: ["0->2","4->5","7"]
+
+
+Input:  [0,2,3,4,6,8,9]
+
+Output: ["0","2->4","6","8->9"]
+
+연속되는 구간이 존재하는 경우는 구간의 앞과 끝을 출력, 구간이 아닌 숫자는 해당 숫자만 출력
+
+#### 풀이 해설:
+연속되는 구간의 숫자들을 벡터 v에 push해나가고 
+
+만약 그다음 숫자가 연속되는 숫자가 아닌경우는 벡터 v의 맨앞과 뒤의 원소를 벡터 res에 push 하고, v는 clear한 뒤 새로 시작되는 수(nums[i])를 push.
+
+```c++
+class Solution {
+public:
+    vector<string> summaryRanges(vector<int>& nums) {
+        vector<string> res;
+        vector<int> v;
+        int n=nums.size();
+        
+        if(n==0) return res;  //원소가 없으면 그냥리턴
+        else if(n==1){        //원소가 1개면 해당 숫자만 리턴
+            res.push_back(to_string(nums[0]));
+            return res;
+        }
+        else{
+            v.push_back(nums[0]);
+            for(int i=1;i<n;i++){
+                if(nums[i]==nums[i-1]+1){
+                    v.push_back(nums[i]);
+                }
+                else{
+                    if(v.size()>1) 
+                        res.push_back(to_string(v[0])+"->"+to_string(v[v.size()-1]));
+                    else res.push_back(to_string(v[0]));
+                    v.clear();
+                    v.push_back(nums[i]);
+                }
+            }
+            if(v.size()>0){ //벡터v에 원소가 남아있다면
+                if(v.size()>1) 
+                        res.push_back(to_string(v[0])+"->"+to_string(v[v.size()-1]));
+                else res.push_back(to_string(v[0]));
+            }
+            return res;
+        }
     }
 };
 ```
