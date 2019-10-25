@@ -638,3 +638,115 @@ public:
 
 <br>
 <br>
+
+## MST 알고리즘
+### 크루스칼 알고리즘 
+- Kruskal Algorithm
+- 최소 스패닝 트리(Minimum Spanning Tree) 알고리즘
+  - 그리디 형식으로 모든 간선의 간선을 오름차순 or 내림차순 정렬하여 차례대로 간선을 누적, 최적의 비용 트리를 만드는 알고리즘
+  - MST 알고리즘 방식인 크루스칼 알고리즘은 순환이 최소신장트리가 순환이 되면 안되므로, Union Find(서로소집합) 알고리즘을 결합하여 사용한다.
+~~~ C++
+/// MARK: - Union Find 알고리즘 : 서로소 집합 알고리즘
+#include <iostream>
+using namespace std;
+
+// 부모 노드를 찾아주는 함수, 트리가 순환하는지를 체크하는데 사용한다. 
+int getParent(int parent[], int x) {
+    if(parent[x] == x) {
+        // 최종 부모노드
+        return x;
+    }
+    // 재귀방식을 통해 해당 노드의 최종 부모노드를 탐색한다.
+    return getParent(parent,parent[x]);
+}
+
+// 두 부모 노드를 합치는 함수, 연결된 노드에 대해 같은 부모노드로 동기화시킨다.
+int unionParent(int parent[], int a, int b) {
+    a = getParent(parent, a);
+    b = getParent(parent, b);
+    
+    // 작은 값을 부모노드로 선택
+    if(a<b) {
+        parent[b] = a;
+        return a;
+    } else {
+        parent[a] = b;
+        return b;
+    }
+}
+
+// 같은 부모를 가지는지 확인, 여부를 반환
+int checkParent(int parent[], int a, int b) {
+    a = getParent(parent, a);
+    b = getParent(parent, b);
+    if(a == b) return 1;
+    else return 0;
+}
+
+// MARK: 간선 노드 클래스를 정의한다.
+class Edge {
+    public:
+    int node[2];
+    int weight;
+    Edge(int x, int y, int w) {
+        this->node[0] = x;
+        this->node[1] = y;
+        this->weight = w;
+    }
+};
+
+int main() {
+    
+    int N = 7; // 노드 갯수
+    int M = 11; // 간선 갯수
+    vector<Edge> V;
+    // 정의된 간선정보를 Edge 벡터, V에 추가한다.
+    V.push_back(Edge(1, 7, 12));
+    V.push_back(Edge(4, 7, 13));
+    V.push_back(Edge(1, 4, 18));
+    V.push_back(Edge(1, 2, 67));
+    V.push_back(Edge(1, 5, 17));
+    V.push_back(Edge(2, 4, 24));
+    V.push_back(Edge(2, 5, 62));
+    V.push_back(Edge(3, 5, 20));
+    V.push_back(Edge(3, 6, 37));
+    V.push_back(Edge(5, 6, 45));
+    V.push_back(Edge(5, 7, 73));
+    
+    // 간선 노드의 오름차순 정렬 후, 가장 적은 비용의 노드를 연결하는 경우를 찾는다.
+    sort(V.begin(), V.end(), [](Edge &a, Edge &b) {
+        return a.weight < b.weight;
+    });
+    
+    // 부모노드 정보를 기록할 배열, C
+    int C[N];
+    for(int i=0; i<N; i++) C[i]=i;
+    
+    // 누적합을 저장 할 변수, SUM
+    // 현재 누적시킨 노드간 간선의 갯수를 기록할 변수, CNT
+    // Edge vector V의 순회할 인덱스, IDX
+    int SUM = 0, int CNT = 0, int IDX;
+    while(CNT != N-1) {
+    
+        // 만약 노드가 순환되지 않는다면(순환체크를 위해 UnionFind Algorithm을 사용)
+        // * 부모노드를 체크하는 C 배열의 인덱스는 0부터 시작하므로, checkParent의 인자값 인덱스는 1씩 감소 후 사용
+        if(!checkParent(C, V[IDX].node[0]-1, V[IDX].node[1]-1)) {
+        
+            // 순환이 일어나지 않으며, 해당 가중치를 누적시킨 후
+            SUM+=V[i].weight;
+            
+            // 이미 사용 된 간선 루트는 서로소집합(Union Find Algorithm) 적용시킨다.
+            unionParent(C, V[IDX].node[0]-1, V[IDX].node[1]-1);
+            
+            CNT++;
+        }
+        IDX++;
+    }
+    printf("%d\n",SUM);
+    
+    return 0;
+}
+~~~
+
+<br>
+<br>
