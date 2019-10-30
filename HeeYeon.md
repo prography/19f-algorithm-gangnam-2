@@ -191,3 +191,85 @@ public:
 ---
 
 
+### 39. Combination Sum
+
+(주소)https://leetcode.com/problems/combination-sum/
+
+
+
+#### 문제 요약:
+target이 주어지고, 원소들을 합해서 target이 되는 모든 집합들 구하기. 중복 허용.
+
+Input: candidates = [2,3,5],  target = 8,
+
+A solution set is:
+
+[ [2,2,2,2], [2,3,3],[3,5] ]
+
+
+
+#### 풀이 해설:
+sum에 값을 더해나가면서 target이 될 때 벡터에 push + 백트래킹
+
+candidates를 정렬했을 때, 이미 이때까지 합한 값(sum)이 target보다 크다면 자신의 인덱스부터 그 후 인덱스들의 값들을 더해도 더 커지기만 하므로 sum이 target보다 작을 때만 dfs함수를 수행.
+
+```c++
+class Solution {
+public:
+    int sum=0;
+    int n;
+    vector<vector<int>> answer;
+    vector<int> ele;
+    
+    void dfs(vector<int>& candidates, int x, int target){
+        if (sum < target) { 
+        //이미 sum이 target보다 큰 경우, candidates는 정렬되어있으므로 더 더해나가도 커지기만할뿐 -> 아예 수행 X
+            for (int j = x; j < n; j++) {
+                ele.push_back(candidates[j]);
+                sum += candidates[j];
+                
+                if (sum == target) {
+                    answer.push_back(ele);
+                    sum -= candidates[j];
+                    ele.pop_back();
+                    return;
+                }
+                if (sum > target) {
+                    sum -= candidates[j];
+                    ele.pop_back();
+                    return;
+                }
+                
+                dfs(candidates, j, target);
+                sum -= candidates[j];
+                ele.pop_back();
+            }
+	    }
+    }
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        
+        sort(candidates.begin(),candidates.end()); //정렬
+        n=candidates.size();
+        sum=0; 
+        
+        for(int i=0;i<n;i++){
+            ele.push_back(candidates[i]);
+            sum += candidates[i];
+            
+            if (sum == target) {
+                answer.push_back(ele);
+                ele.pop_back();
+                continue;
+            }
+            
+            dfs(candidates, i, target);
+            sum -= candidates[i];
+            ele.pop_back();
+        }
+        return answer;
+    }
+};
+
+```
+---
+
