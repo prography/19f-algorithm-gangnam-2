@@ -277,3 +277,89 @@ public:
 ```
 ---
 
+### Remove duplicates from array
+
+(주소)https://leetcode.com/problems/longest-palindromic-substring/
+
+
+
+#### 문제 요약:
+주어진 문자열에서 가장 긴 palindrom인 문자열을 찾는다.
+
+
+
+#### 풀이 해설:
+	
+	 if(ss[i]==ss[j] && dp[i+1][j-1]==true){
+	 
+	    dp[i][j]=true;
+	    
+	}
+
+```c++
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        string answer="";
+        int max=0;
+        int a,b;
+        int n=s.size();
+        bool dp[n+1][n+1];
+        
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                dp[i][j]=false;    //가능한 쌍들의 dp값 초기화
+            }
+        }
+        
+        if(n==0 || n==1) return s;
+        else if(n==2){
+            if(s[0]==s[1]) return s;
+            else {
+                answer.push_back(s[0]);
+                return answer;
+            }
+        }
+	
+	//dp[i][j]==true는 i부터 j인덱스까지의 문자열이 palindrom이라는 뜻
+	
+        for(int i=0;i<n;i++){
+            dp[i][i]=true;    //하나의 단어는 palindrom
+            
+            if(i<n-1 && s[i]==s[i+1]){   //2개짜리 쌍들에서도 palindrom탐색
+                dp[i][i+1]=true; 
+            }
+        }
+        
+        for(int i=n-3;i>=0;i--){
+            for(int j=i+2;j<n;j++){  //연속 2개짜리 쌍들은 위에서 이미 비교 -> j = i+1이 아닌 i+2 부터 시작
+            
+                if(j-i>=2 && dp[i+1][j-1]==true){
+                    if(s[i]==s[j]){
+                        dp[i][j]=true;
+                    }
+                }
+            }
+        }
+        
+        for(int i=0;i<n;i++){
+            for(int j=i;j<n;j++){
+                if(dp[i][j]==true){ //palindrom인 문자열들 중에서 가장 긴 문자열 찾기
+		                    
+                    if(j-i+1>max) {
+                        max=j-i+1;
+                        a=i;
+                        b=j;
+                    }
+                }
+            }
+        }
+        for(int i=a;i<=b;i++){
+            answer.push_back(s[i]);
+        }
+        return answer;
+        
+    }
+};
+```
+---
