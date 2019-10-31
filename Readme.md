@@ -104,6 +104,30 @@
 
 
 
+---
+
+#### 2019.10.31 (목)
+
+참석자: 민경태, 신성환, 황희연
+
+- 풀이한 문제:
+
+  - Word Ladder (https://leetcode.com/problems/word-ladder-ii/) 
+  - Combination Sum (https://leetcode.com/problems/combination-sum/) 
+  - longest-palindromic-substring (https://leetcode.com/problems/longest-palindromic-substring/2) 
+  - 4sum (https://leetcode.com/problems/4sum/)
+  - Subsets https://leetcode.com/problems/subsets/
+  - Summary Ranges https://leetcode.com/problems/summary-ranges/
+  - 3sum (https://leetcode.com/problems/3sum/submissions/)
+  - First Missing Positive (https://leetcode.com/problems/first-missing-positive/submissions/)
+
+- 세미나(개념당 최대 10분, 형식 자유):
+  - Kruskal Algorithm - 민경태
+
+---
+
+
+
 
 
 
