@@ -277,7 +277,7 @@ public:
 ```
 ---
 
-### Remove duplicates from array
+### 5. Longest Palindromic Substring
 
 (주소)https://leetcode.com/problems/longest-palindromic-substring/
 
