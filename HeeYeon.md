@@ -363,3 +363,61 @@ public:
 };
 ```
 ---
+
+
+
+### 1222. Queens That Can Attack the King
+
+(주소)https://leetcode.com/problems/queens-that-can-attack-the-king/
+
+
+
+#### 문제 요약:
+King을 공격할 수 있는 Q들의 위치값들을 리턴.
+
+공격은 같은 행, 열, 대각선상에 있는 Q들이 할 수 있다. 단 다른 Q가 K에 더 가까이 위치해있으면 can't attack.
+
+
+#### 풀이 해설:
+
+K의 위치 (a , b)로부터 총 8방향 ( 위,아래,왼쪽,오른쪽, 대각선 4방향)으로 위치를 이동해나가며 Q값을 가진 위치를 만나면 answer에 추가한다.
+
+```c++
+class Solution {
+public:
+    int dir[8][2]={{-1,0},{-1,1},{0,1},{1,1},{1,0},{1,-1},{0,-1},{-1,-1}};
+    bool isQueen[10][10];
+    int a,b;
+    vector<vector<int>> v;
+    vector<int>vv;
+    
+    vector<vector<int>> queensAttacktheKing(vector<vector<int>>& queens, vector<int>& king) {
+        int n=queens.size();
+        for(int i=0;i<n;i++){
+            isQueen[queens[i][0]][queens[i][1]]=true;
+        }
+        a=king[0];
+        b=king[1];
+        
+        for(int i=0;i<8;i++){
+            int dx=a,dy=b;   //'K'가 항상 출발점
+            while(1){
+                dx+=dir[i][0];
+                dy+=dir[i][1];
+                if(dx>=0 && dx<8 && dy>=0 && dy<8 && isQueen[dx][dy]==true){ //'Q'가 있는 자리 발견 즉시 push,break
+                    vv.push_back(dx);
+                    vv.push_back(dy);
+                    v.push_back(vv);
+                    vv.clear();
+                    break;
+                }
+                else if(dx<0 || dx>=8 || dy<0 || dy>=8){   //8x8 chess board의 범위를 벗어나면 탐색진행 중단
+                    break;
+                }
+            }
+        }
+        return v;
+    }
+};
+```
+---
