@@ -421,3 +421,44 @@ public:
 };
 ```
 ---
+
+
+### 946. Validate Stack Sequences
+
+(주소)https://leetcode.com/problems/validate-stack-sequences/
+
+
+
+#### 문제 요약:
+pushed 배열의 원소들을 차례대로 push, pop 해서 popped 배열과 동일한 결과를 낼 수 있는지 판별.
+
+
+#### 풀이 해설:
+
+popped 배열의 원소는 현재 스택의 맨 위 원소와 같거나, 아직 스택에 추가되지 않은 pushed 배열의 원소와 같아야 (push 한뒤 pop하면 되므로) pop 될 수 있다.
+
+```c++
+class Solution {
+public:
+    bool validateStackSequences(vector<int>& pushed, vector<int>& popped) {
+        int n1=pushed.size();
+        int n2=popped.size();
+        vector<int> t;
+        stack<int>s;
+
+        for(int i=0, j=0; i < n1 ;i++){
+            
+            s.push(pushed[i]);
+        
+            while(s.size()>0 && s.top()==popped[j]){
+                s.pop();
+                j++;
+            }
+        }
+        if(s.size()==0) return true;
+        else return false;
+        
+    }
+};
+```
+---
