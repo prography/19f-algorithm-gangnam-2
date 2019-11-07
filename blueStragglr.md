@@ -20,7 +20,7 @@
 
 #### 풀이 해설:
 
-```
+```python
 import math
 
 def solution(s):
@@ -417,4 +417,180 @@ class Solution:
 ```
 
 해당 문제는 Matrix를 구성한 뒤, 가능한 pathway들을 모두 탐색하다 마지막 단어에 도달하는 경우 종료하도록 구성하였다. 탐색 자체는 O(n)에 마무리할 수 있지만 Matrix를 생성하는 탐색이 O(n^2)를 요구하게 된다. 
+
+
+
+
+
+
+
+
+
+---
+
+#### Trapping Rain Water (HARD)
+
+(https://leetcode.com/problems/trapping-rain-water/)
+
+
+
+#### 문제 요약:
+
+해당 문제는 주어진 positive integer set을 block 형태로 쌓았을 때, trap되는 물의 총량을 구하는 문제이다. 아래와 같은 입력 예시를 생각해 보자. 
+
+> Input: [0,1,0,2,1,0,1,3,2,1,2,1]
+>
+> 위와 같이 input이 주어지면, 아래와 같이 물이 담길 것으로 예상할 수 있다. 
+>
+> ![img](https://assets.leetcode.com/uploads/2018/10/22/rainwatertrap.png)
+>
+> output: 6
+
+#### 풀이 해설:
+
+#### Solution 1. Stack
+
+##### Time: O(n), Space: O(n)
+
+```python
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        trapped = [0] * len(height)
+        heightStack = []
+        
+        for i in range(len(height)):
+            ##### Stack이 비어있다면 Stack에 추가
+            if heightStack == []:
+                heightStack.append([i,height[i]])
+                
+            ##### Stack이 차있다면
+            else:
+              	##### Stack의 첫 칸에는 Fragement에서 항상 가장 큰 값이 옴.
+                ##### 만약 새로 탐색한 값이 이전에 있던 가장 큰 값보다 크다면 해당 fragment 전체에 물을 채우고
+                ##### Stack을 갱신 (마지막으로 탐색한 요소만 남김)
+                if heightStack[0][1] <= height[i]:
+                    for j in range(heightStack[0][0] + 1, i):
+                        trapped[j] = heightStack[0][1] - height[j] 
+                    heightStack = [[i,height[i]]]
+                else:  
+                    ##### 바로 이전 요소보다 작은 값이라면 Stack에 추가함
+                    if((heightStack[-1][1] > height[i]) and ((heightStack[-1][0] - i) == -1)):
+                        heightStack.append([i,height[i]])
+                    ##### 그렇지 않다면, 탐색값보다 큰 요소가 나올 때 까지 Backtracking
+                    ##### 발견하면 탐색을 중단하고 물을 채운 뒤 Stack에서 물에 잠긴 요소를 제거
+                    elif(height[i] > height[i-1]):   
+                        for j in range(len(heightStack))[::-1]:
+                            if (heightStack[j][1] >= height[i]):
+                                for k in range(heightStack[j][0] + 1, i):
+                                    if(trapped[k] < height[i] - height[k]):
+                                        trapped[k] = height[i] - height[k]
+                                del heightStack[j+1:]
+                                break
+        return (sum(trapped))
+
+```
+
+
+
+#### Solution 2. Dynamic Programming
+
+홈페이지에 있는 사진으로 갈음합니다.
+
+##### Time: O(n), Space: O(n)
+
+```python
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        leftMax = [0] * len(height)
+        rightMax = [0] * len(height)
+        maxValue = 0
+        answer = 0
+        for i in range(len(height)):
+            maxValue = max(maxValue, height[i])
+            leftMax[i] = maxValue
+
+        maxValue = 0
+        for i in range(len(height))[::-1]:
+            maxValue = max(maxValue, height[i])
+            rightMax[i] = maxValue
+            answer += min(rightMax[i], leftMax[i]) - height[i]
+        
+        return answer
+
+```
+
+![Dynamic programming](https://leetcode.com/problems/trapping-rain-water/Figures/42/trapping_rain_water.png)
+
+
+
+---
+
+### Asteroid Collision
+
+https://leetcode.com/problems/asteroid-collision/
+
+#### 문제 요약:
+
+해당 문제는 순서대로 위치한, 각기 다른 크기의 소행성들이 시간이 충분히 지난 후 어떻게 될지에 대한 문제이다. 주어지는 integer array는 소행성의 크기이며, 부호는 움직이는 방향이다. 작은 소행성이 큰 소행성과 부딪히면 작은 소행성이 소멸하며, 같은 크기의 소행성이 충돌시 두 개 모두 소멸한다.  
+
+> Input: [5,10,-5]
+>
+> 5, 10의 소행성은 같은 방향으로 진행하지 않아 남아있고, -5의 소행성은 10의 소행성과 충돌하여 파괴되므로 결과적으로 5와 10만 남는다.
+>
+> output: [5,10]
+
+#### 풀이 해설:
+
+#### Solution 1. Stack
+
+##### Time: O(n), Space: O(1)
+
+Concept ~ Stack에 하나씩 소행성을 추가하며, 왼쪽(negative)으로 진행하는 소행성이 등장하는 경우 stack의 소행성들과 충돌하는 것으로 간주하여 폭발하는 소행성을 제거한다. 만일 왼쪽으로 진행하는 소행성이 stack에 왼쪽으로 진행하는 소행성만 남을 때 까지 소행성을 파괴한다면, 해당 소행성을 stack에 추가한다.  
+
+```python
+class Solution:
+    def asteroidCollision(self, asteroids: List[int]) -> List[int]:
+        answerStack = []
+        for asteroid in asteroids:
+            ##### Stack이 빈 경우, 소행성을 추가.
+            if answerStack == []:
+                answerStack.append(asteroid)
+            else:
+                #### 탐색한 소행성이 왼쪽으로 진행하고 있다면
+                if asteroid < 0:
+                  	##### Stack을 하나씩 탐색하며
+                    for i in range(len(answerStack))[::-1]:
+                      	##### 왼쪽으로 진행하는 소행성만 스택에 남았다면 그냥 추가하고
+                        if (answerStack[i] < 0):
+                            answerStack.append(asteroid)
+                            break
+                        ##### 그렇지 않다면
+                        else:
+                            ##### 탐색중인 소행성보다 작은 소행성을 하나씩 파괴하며
+                            if (answerStack[i] + asteroid) < 0:
+                                del answerStack[-1]
+                                ##### 모두 파괴되었다면 Stack에 추가.
+                                if i==0:
+                                    answerStack.append(asteroid)
+                                    
+                          	##### 만약 크기가 같은 경우에는 둘 다 파괴하기만 하고 루프 종료.
+                            elif (answerStack[i] + asteroid) == 0:
+                                del answerStack[-1]
+                                break
+                                
+                            ##### 왼쪽으로 진행하는 소행성이 더 작은 경우에는 바로 파괴하고 루프 종료.
+                            else:
+                                break
+                else:                
+                    answerStack.append(asteroid)
+
+        return answerStack
+                                
+```
+
+
+
+
+
+
 
