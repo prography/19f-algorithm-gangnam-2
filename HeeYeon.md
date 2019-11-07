@@ -462,3 +462,72 @@ public:
 };
 ```
 ---
+
+---
+
+### Priority Queue 
+
+
+
+#### Priority Queue란?
+
+- Queue는 들어간 순서대로 데이터를 뽑아낼 수 있는 자료구조
+
+- Priority Queue는 들어간 순서와는 상관 없이, 우선순위라는 값을 도입하여 우선순위가 높은 데이터를 먼저 뽑아낼 수 있는 자료구조, max heap을 이용하여 구현하는 것이 일반적.
+
+
+
+
+#### Priority Queue 구현 2가지 함수 : 
+
+- insert(A[], x) :  배열 A에 새로운 원소를 넣되, max heap 특성을 유지. 
+
+- extractMax(A[]) : 배열 A에서 최댓값을 반환하지만, 최댓값을 제거하고 max heap 특성을 유지하기 위하여 재배열. 
+
+
+
+
+#### insert(A[], x) 
+
+
+
+```c++
+Function insert(a[], x){
+	a.heapSize = a.heapSize + 1;
+	a[a.heapSize − 1] = x;
+	i = a.heapSize - 1;
+	while( i>0 && a[(i-1)/2]< a[i]){
+		Exchange a[(i-1)/2] with a[i];
+		i=(i-1)/2;
+	}
+}
+ ```
+ 
+ #### extractMax(a[])
+ 
+ 
+ ```c++
+Function extractMax(a[]){
+	max = a[0];
+	a[0] = a[a.heapSize - 1];
+	a.heapSize = a.heapSize - 1;
+	maxHeapify(a,0);
+	i = a.heapSize - 1;
+	return max;
+}
+
+Function maxHeapify(a[],i){
+	left=2i+1;   //왼쪽 자식 노드
+	right=2i+2;  //오른쪽 자식 노드
+	if(left<a.heapSize && a[i]<a[left])  largest=left;
+	else largest=i;
+	if(right<a.heapSize && a[largest]<a[right]) largest=right;
+	if(largest != i){
+		Exchange a[i] with a[largest];
+		maxHeapify(a,largest);
+	}
+}
+		
+
+```
+---
