@@ -531,3 +531,128 @@ Function maxHeapify(a[],i){
 
 ```
 ---
+
+---
+
+### 64. Minimum Path Sum
+
+(주소)https://leetcode.com/problems/minimum-path-sum/
+
+
+
+#### 문제 요약:
+
+이차원 배열의 형태(m x n)인 grid 이차원 벡터가 주어지는데, 좌상단 지점에서 우하단 지점으로 이동하는데 거쳐가는 점들의 합을 최소로 하는 path의 합을 구하는 문제.
+
+Note: You can only move either down or right at any point in time.
+
+Input:
+
+[
+
+  [1,3,1],
+  
+  [1,5,1],
+  
+  [4,2,1]
+  
+]
+
+Output: 7
+
+Explanation: Because the path 1→3→1→1→1 minimizes the sum.
+
+#### 풀이 해설:
+grid 배열의 원소마다 dp값에 경로의 최소합을 누적시켜나간다. (순서는 왼쪽에서 오른쪽으로, 위쪽에서 아래쪽순으로)
+
+이동은 오른쪽, 아래쪽으로만 가능하다하였으므로 dp[i][j]의 값에 영향을 주는 요소들은 [i][j]의 왼쪽, 위쪽인 [i][j-1], [i-1][j] .
+
+단, 맨 위의 행이나 맨 왼쪽의 열 같은 경우는 i-1, j-1 값이 0보다 작아질 수 있으므로 따로 검사.
+
+```c++
+class Solution {
+public:
+    int minPathSum(vector<vector<int>>& grid) {
+        int n1=grid.size();     //n1=m , 행의 개수
+        int n2=grid[0].size();  //n2=n , 열의 개수
+        int dp[n1+1][n2+1];
+        
+        dp[0][0]=grid[0][0];
+        
+        for(int i=0;i<n1;i++){
+            for(int j=0;j<n2;j++){
+                if(i==0 && j==0) continue;  
+                if(i-1<0){  //자신의 바로 위쪽이 grid범위 밖이라면 왼쪽만 고려
+                    dp[i][j]=dp[i][j-1]+grid[i][j];
+                }
+                else if(j-1<0){  //자신의 바로 왼쪽이 grid범위 밖이라면 위쪽만 고려
+                    dp[i][j]=dp[i-1][j]+grid[i][j];
+                }
+                else{
+                    dp[i][j]=min(dp[i-1][j],dp[i][j-1])+grid[i][j];   //자신의 왼쪽과 위쪽의 dp값 중 minimum을 택해서 더한다
+                }
+            }
+        }
+        return dp[n1-1][n2-1];
+    }
+};
+```
+---
+
+
+### 318. Maximum Product of Word Lengths
+
+(주소)https://leetcode.com/problems/maximum-product-of-word-lengths/
+
+
+
+#### 문제 요약:
+입력으로 주어지는 words 벡터안에서 두 단어의 길이의 곱의 최댓값 구하는 문제.  단, 두 단어는 서로 공통된 알파벳을 가지고 있지 않아야한다
+
+Input: ["abcw","baz","foo","bar","xtfn","abcdef"]   =words vector
+
+Output: 16 
+
+Explanation: The two words can be "abcw", "xtfn".
+
+
+#### 풀이 해설:
+words벡터에서 가능한 두쌍의 경우들을 모두 구해 두 단어가 공통된 알파벳을 가지고 있는지 아닌지 판단 후, 가지고 있지 않으면 길이의 곱을 계산.
+
+
+
+* 두 단어가 공통된 알파벳을 가지고 있는지 아닌지 판단하는 방법  :
+
+ 	비트연산자를 이용해서 단어들마다 그 단어가 포함하는 알파벳의 자리에 1을 넣는다. 여기서 최종적으로 구한 값은 벡터 v에 저장한다.
+ 
+	만약 두 단어가 공통된 알파벳을 가지고 있지 않다면, 두 단어들의 벡터 v 값을 AND했을 때 0의 값을 가질 것이다. 
+
+	0 이 아니면 조건을 만족하지 못하므로 무시
+
+```c++
+class Solution {
+public:
+    int maxProduct(vector<string>& words) {
+        int n=words.size();  //n=단어들의 개수
+        int mm=0;            //maximum value
+        vector<int> v(n,0);  //Create a vector v of size n with all values as 10.
+             
+        for(int i=0;i<n;i++){   //words의 단어들마다 부여되는 벡터값
+            for(int j=0;j<words[i].size();j++){   
+                v[i] |= ( 1<< words[i][j]-'a');   //포함하는 알파벳 자리에 1이 들어감. (OR연산자)
+            }
+        }
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if((v[i] & v[j])==0){  //(AND연산자), 공통되는 알파벳이 없다면 AND의 결과는 0이다
+                    int a=words[i].size()*words[j].size();
+                    if(mm<a) mm=a;
+                }
+            }
+        }
+        return mm;
+    }
+};
+```
+---
+
