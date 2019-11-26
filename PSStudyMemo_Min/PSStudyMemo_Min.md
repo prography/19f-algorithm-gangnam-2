@@ -4,9 +4,88 @@
 <br>
 <br> 
 
-## Easy Level Problem 
+## Easy Problem 
+
+### **Min Cost Climbing Stairs**
+
+- (주소) https://leetcode.com/problems/min-cost-climbing-stairs/submissions/
+
+<br>
+
+- 문제 요약:
+  - 1,2칸을 이동가능할 때 가장 최소의 비용으로 건널 때의 비용을 출력하는 문제
+
+<br>
+
+- 풀이 해설:
+
+  - 1) 역순으로 최소비용을 체크하며 값 도출
+
+~~~ swift
+#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    int minCostClimbingStairs(vector<int>& cost) {
+        int f1 = 0, f2 = 0;
+        for(int i=cost.size()-1; i>=0; i--) {
+            int f0 = cost[i] + min(f1, f2);
+            f2 = f1;
+            f1 = f0;
+        }
+        return min(f1,f2);
+    }
+};
+~~~
+
+
+
+
+
+### Best Time To Buy And Sell Stock
+
+- (주소) https://leetcode.com/problems/best-time-to-buy-and-sell-stock/submissions/
+
+<br>
+
+- 문제 요약:
+  - 날짜에 따른 구매가격이 주어질때 가장 큰 이윤을 남길 수 있도록 사고/팔았을 때의 최대 이윤을 출력하는 문제
+
+<br>
+
+- 풀이 해설:
+
+  - 1) 이중 for문을 이용한 최대 이윤 값 계산
+
+~~~ swift
+// MARK: - bestTimeToBuyAndSellStock
+// - 5.41% / 72.48%
+#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int Ans = 0;
+        for(int i=0; i<prices.size(); i++) {
+            for(int j=i+1; j<prices.size(); j++) {
+                int gap = prices[j]-prices[i];
+                Ans = gap > Ans ? gap : Ans;
+            }
+        }
+        return Ans;
+    }
+};
+
+~~~
+
+
+
+
+
 ### Two Sum_easy
-- (주소) https://leetcode.com/problems/two-sum/
+- (주소)  https://leetcode.com/problems/two-sum/
 
 <br>
 
@@ -16,8 +95,9 @@
 <br>
 
 - 풀이 해설:
-- 1) 이중 for문을 사용한 brute force 방법
-  - 효율성 18.24%
+
+  - 1) 이중 for문을 사용한 brute force 방법
+    - 효율성 18.24%
 ~~~ C++
 /// MARK: - 이중 for문 사용 통과답안, 18.24%
 vector<int> twoSum(vector<int>& nums, int target) {
@@ -39,8 +119,8 @@ vector<int> twoSum(vector<int>& nums, int target) {
 
   <br>
 
-- 2) map 테이블을 활용한 풀이방법 
-  - 효율성 64.24% ~ 92.65%
+  - 2) map 테이블을 활용한 풀이방법 
+    - 효율성 64.24% ~ 92.65%
 ~~~ C++
 /// MARK: - unordered_map 사용 통과답안, 64.24% ~ 92.65%
 //  * map 사용 시 48%
@@ -71,8 +151,9 @@ vector<int> twoSum2(vector<int>& nums, int target) {
 <br>
 
 - 풀이 해설:
-- 벡터 erase() 사용 답안 
-  - 효율성 10%
+
+  - 벡터 erase() 사용 답안 
+    - 효율성 10%
 ~~~ C++
 /// MARK: erase 함수 사용 통과답안, 10%
 int removeDuplicates(vector<int>& nums) {
@@ -89,8 +170,8 @@ int removeDuplicates(vector<int>& nums) {
 
 <br>
 
-- set 사용 답안 
-  - 효율성 25%
+  - set 사용 답안 
+    - 효율성 25%
 ~~~ C++
 /// MARK: - set 사용 통과답안, 25%
 int removeDuplicates(vector<int>& nums) {
@@ -104,8 +185,8 @@ int removeDuplicates(vector<int>& nums) {
 
 <br>
 
-- 서브 벡터 사용 통과답안
-  - 효율성 93.43%
+  - 서브 벡터 사용 통과답안
+    - 효율성 93.43%
 ~~~ C++
 int removeDuplicatesSemiMaster(vector<int>& nums) {
     vector<int> Ans;
@@ -207,275 +288,122 @@ public:
 ~~~
 
 <br>
-<br>
 
-## Medium Level Problem 
-
-<br>
-
-### 4 Sum
+### Search Insert Position_easy
+- (주소)  https://leetcode.com/problems/search-insert-position
 
 <br>
 
 - 문제 요약:
-  - 특정 배열 요소 4개를 합한 값이 타겟값일 경우의 해당 4개 배열요소를 출력하는 문제 
+  - target 인덱스를 반환, target 없을 시 target 값 이하의 최댓값 다음 인덱스 반환 
 
 <br>
 
-- 풀이 해설: 1) 4중 for문 사용하여 풀이 가능 (brute Force)
+- 풀이 해설:
+
 ~~~ C++
-/// MARK: - 4SUM
+
 #include <vector>
-#include <set>
 using namespace std;
 
-/// MARK: - 4중포문 통과답안, 5.02%, 더 좋은 방법을 찾아봐야 함
-class theFourSum {
+class SearchInsertPosition {
 public:
-    vector<vector<int>> fourSum(vector<int>& nums, int target) {
-        if(nums.size()<4) return {};
-        set<vector<int>> ST;
-        
-        sort(nums.begin(), nums.end());
-        vector<vector<int>> Ans;
-        // 4중 for문을 사용하여 전체 경우의 수에 따른 타겟 합을 구할 수 있다. 
-        for(int i=0; i<nums.size()-3; i++) {
-            for(int j=i+1; j<nums.size()-2; j++) {
-                for(int k=j+1; k<nums.size()-1; k++) {
-                    for(int l=k+1; l<nums.size(); l++) {
-                        if(nums[i]+nums[j]+nums[k]+nums[l]==target) {
-                            vector<int> temp;
-                            temp = {nums[i], nums[j], nums[k], nums[l]};
-                            ST.insert(temp);
-                        }
-                    }
-                }
+    
+    /// MARK: - 통과 답안, 98.22%
+    int searchInsertMaster(vector<int>& nums, int target) {
+        int Ans=0;
+        for(int i=0; i<nums.size(); i++) {
+            if(nums[i]==target) return i;
+            else {
+                if(nums[i] < target) Ans=i+1;
+                else break;
             }
         }
-        for(auto s: ST) Ans.push_back(s);
         return Ans;
     }
 };
+    
 ~~~
 
 <br>
+<br>
+
+## Medium Problem 
+
+
+
+### Push Dominoes
+
+- (주소) https://leetcode.com/problems/push-dominoes/
+
+<br>
+
+- 문제 요약:
+  - 도미노를 좌, 우측으로 푸시하는 데이터를 줬을때, 푸시 후 도미노의 상태를 반환하는 문제
+
+<br>
+
+- 풀이 해설:
 
 ~~~ swift
-/// MARK: - 4중포문 + 예외처리 일부 추가
-class Solution {
-public:
-    vector<vector<int>> fourSum(vector<int>& nums, int target) {
-        if(nums.size()<4) return {};
-        set<vector<int>> ST;
-        
-        sort(nums.begin(), nums.end());
-        vector<vector<int>> Ans;
-        // 4중 for문을 사용하여 전체 경우의 수에 따른 타겟 합을 구할 수 있다. 
-        for(int i=0; i<nums.size()-3; i++) {
-            if(target>=0 && nums[i]>target) break;
-            if(target<0 && nums[i]>=0) break;
-            for(int j=i+1; j<nums.size()-2; j++) {
-                int twoSum = nums[i] + nums[j];
-                if(target>=0 && twoSum>target) break;
-                if(target<0 && twoSum>=0) break;
-                for(int k=j+1; k<nums.size()-1; k++) {
-                    int threeSum = nums[i]+nums[j]+nums[k];
-                    if(target>=0 && threeSum>target) break;
-                    if(target<0 && threeSum>=0) break;
-                    for(int l=k+1; l<nums.size(); l++) {
-                        int sum = nums[i]+nums[j]+nums[k]+nums[l];
-                        if(sum==target) {
-                            vector<int> temp;
-                            temp = {nums[i], nums[j], nums[k], nums[l]};
-                            ST.insert(temp);
-                        } else if((sum>target && target>=0)
-                                 || (sum>=0 && target<0)) break;
-                    }
-                }
-            }
-        }
-        for(auto s: ST) Ans.push_back(s);
-        return Ans;
-    }
-};
+// ...
 ~~~
 
-~~~ Swift 
-/// MARK: - 다른 사람 모범답안 (예외처리 보완)
-class Solution {
-public:
-    vector<vector<int>> fourSum(vector<int>& nums, int target) {
-        int n = nums.size();
-        vector<vector<int>>res;
-        if(n < 4)   return res;
-        sort(nums.begin(), nums.end());
-        for(int i = 0; i < n-3; i++){
-            if(i > 0 && nums[i] == nums[i-1])   continue;
-            if(nums[i] + nums[i+1] + nums[i+2] + nums[i+3] > target)    break;
-            if(nums[i] + nums[n-1] + nums[n-2] + nums[n-3] < target)    continue;
-            for(int j = i + 1; j < n-2; j++){
-                if(j > i+1 && nums[j] == nums[j-1])   continue;
-                if(nums[i] + nums[j] + nums[j+1] + nums[j+2] > target)    break;
-                if(nums[i] + nums[j] + nums[n-1] + nums[n-2] < target)    continue;
-                int left = j+1, right = n-1;
-                while(left < right){
-                    int sum = nums[i] + nums[j] + nums[left] + nums[right];
-                    if(sum < target)
-                        left++;
-                    else if(sum > target)
-                        right--;
-                    else{
-                        res.push_back({nums[i], nums[j], nums[left], nums[right]});
-                        left++, right--;
-                        while(left < right && res.back()[2] == nums[left]) left++;
-                        while(left < right && res.back()[3] == nums[right]) right--;
-                    }
-                }
-            }
-        }
-        return res;
-    }
-};
-~~~
+
 
 <br>
 
-### Sub Sets
+### Counting Bits
+
+- (주소) https://leetcode.com/problems/counting-bits/submissions/
 
 <br>
 
 - 문제 요약:
-  - 특정 배열 요소의 전체 부분집합을 출력하는 문제 
+  - 0...num 사이의 각각의 숫자의 2진수 1갯수를 배열로 반환하는 문제
 
 <br>
 
-- 풀이 해설: 재귀함수를 통해 풀이할 수 있다. + 비트마스크 방법 존재 
-~~~ C++
-/// MARK: - SubSets
-//  - 재귀적 용법 활용 부분집합 출력 문제 통과답안
-#include <vector>
-#include <algorithm>
-using namespace std;
+- 풀이 해설:
+  - 0 ~ num 까지의 값을 하나하나 2진수로 변한하면서 1의 갯수를 계산 후 반환
 
-class SubSets {
-public:
-    void go(int count, vector<int> C, vector<int> nums, vector<vector<int>> &ANS) {
-        // 부분집합 가능 요소를 모드 훑었을 때마다 부분집합의 경우의 수를 출력하고 해당 재귀함수를 순차적으로 종료한다.
-        if(count==C.size()) {
-            vector<int> Ans;
-            for(int i=0; i<C.size(); i++) {
-                if(C[i]==1) Ans.push_back(nums[i]);
-            }
-            ANS.push_back(Ans);
-            return;
-        }
-        
-        C[count]=0;
-        // 부분집합에서 해당 인덱스 요소를 사용 안할 경우,
-        go(count+1,C,nums,ANS);
-        C[count]=1;
-        // 부분집합에서 해당 인덱스 요소를 사용 할 경우를 분리하여 경우의 수를 출력한다.
-        go(count+1,C,nums,ANS);
-    }
-    
-    vector<vector<int>> subsets(vector<int>& nums) {
-        vector<vector<int>> Ans;
-        vector<int> C(nums.size(),0);
-        go(0,C,nums,Ans);
-        return Ans;
-    }
-};
-~~~
-
-<br>
-
-
-### Longest Palindromic Substring
-- 가장 긴 펠린드롬 부분문자열 문제 
-- (주소)  https://leetcode.com/problems/longest-palindromic-substring/submissions/
-
-<br>
-
-- 문제 요약:
-  - 가장 긴 펠린드롬 문자열(앞뒤 대칭 문자열)을 구해서 출력하는 문제 
-
-<br>
-
-- 풀이 해설: Manacher's Algorithm을 사용해서 풀이할 수 있다. 
-- Manacher's Algorithm(마나커 알고리즘)은 A[i]가 존재할때, i-A[i] ~ A[i]+i 범위의 팰린드롬문자열이 존재하면, i-A[i]-1 ~ A[i]+i+1 의 팰린드롬 문자열은 없음을 이용하는 O(N) 복잡도의 특수 알고리즘 기법이다.
-~~~ C++
-/// MARK: - 가장 긴 펠린드롬 부분 문자열 문제 : Manacher's Algorithm Problem
-
+~~~ swift
+// MARK: - countingBits
+// - 통과답안, 7.44% 속도
 #include <iostream>
+#include <string>
 #include <vector>
 using namespace std;
 
-vector<int> A(1000000,0);
-class LongestPalindromicSubstring {
+class Solution {
 public:
-
-    /// MARK: manacherAlgorithm
-    string manacherAlgorithm(string S) {
-        // r : 가장 큰 팰린드롬 문자열의 우측 범위를 저장 -> 해당 값이 줄어드는 경우는 없으므로 S 문자열을 순회하며 O(N)의 복잡도를 가진 후 종료
-        // p : 가장 큰 팰린드롬 문자열의 중심 축을 저장
-        int r=0,p=0;
-        int sum=0,mxIdx=0;
-        string Ans = "";
-        for(int i=0; i<S.length(); i++) {
-            // 현재 식별된 펠린드롬 문자열 범위 안에 있으면, 펠린드롬 범위 내 대칭점의 값과 '최근 펠린드롬 우측범위(r)-i' 값의 최솟값으로 초기화
-            // 현재 식별된 펠린드롬 문자열 범위 밖이라면, 0으로 초기화
-        for(int i=0; i<S.length(); i++) {
-            if(i <= r) A[i] = min(A[2*p-i],r-i);
-            else A[i] = 0;
-            
-            /// 펠린드롬 문자열 여지가 있는 인덱스를 기준으로 펠린드롬 가능 범위를 지정한다. 
-            //  0 이상으로 초기화 된 경우에도 그 이상의 바깥 문자열을 비교하며, 더욱 긴 펠린드롬 문자열이 식별 시 A[i]를 증가시킨다. 
-            while(i-A[i]-1 >= 0 && i+A[i]+1 <S.length() && S[i-A[i]-1]==S[i+A[i]+1]) A[i]++;
-            
-            /// 더 큰 팰린드롬 문자열 우측 범위가 식별되면 갱신 후, 그 중심점(P) 또한 갱신한다.
-            if(r < i+A[i]) {
-                r = i+A[i];
-                p = i;
-            }
-            
-            // 가장 긴 팰린드롬 문자열 길이 밎 그 중심점 인덱스를 저장한다. 
-            if(sum < A[i]) {
-                sum = A[i];
-                mxIdx = i;
-            }
+    int countOne(int num) {
+        int count = 0;
+        while(num>0) {
+            if(num%2 == 1) count++;
+            num/=2;
         }
-
-        for(int i=max(mxIdx-A[mxIdx],0); i<min(mxIdx+A[mxIdx],(int)S.length()-1); i++) {
-            Ans += S[i];
-        }
-
-        return Ans;
+        return count;
     }
-    
-    string longestPalindrome(string s) {
-        
-        // "bb" 같은 짝수 개의 펠린드롬 부분문자열까지 식별하기 위해 문자열 사이에 '@' 문자를 임의로 끼워서 manacher's Algorithm을 수행한다.
-        string S = "@";
-        for(int i=0; i<s.length(); i++) {
-            S+=s[i];
-            S+='@';
-        }
-
-        string ANS = manacherAlgorithm(S);
-        string Ans = "";
-        
-        /// '@' 문자를 제외한 가장 긴 펠린드롬 부분문자열을 반환한다.
-        for(auto s: ANS) {
-            if(s!='@') Ans+=s;
+    vector<int> countBits(int num) {
+        vector<int> Ans;
+        for(int i=0; i<=num; i++) {
+            Ans.push_back(countOne(i));
         }
         return Ans;
     }
 };
+
 ~~~
 
-<br>
+
+
+
+
+
 
 ### Rotate Image
+
 - (주소)  https://leetcode.com/problems/rotate-image/
 
 <br>
@@ -590,7 +518,7 @@ public:
 <br>
 <br>
 
-## Hard Level Problem 
+## Hard Problem 
 
 ### First missing positive
 - (주소)  https://leetcode.com/problems/first-missing-positive/
@@ -638,5 +566,3 @@ public:
 
 <br>
 <br>
-
-
