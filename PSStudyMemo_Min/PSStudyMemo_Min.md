@@ -6,7 +6,55 @@
 
 ## Easy Problem 
 
-### **Min Cost Climbing Stairs**
+
+
+### House Robber 
+
+- **(주소) https://leetcode.com/problems/house-robber/**
+
+<br>
+
+- **문제 요약**
+  - **인접하지 않는 조건으로 집을 털어 최대의 이윤을 얻는 경우의 최대 이윤을 찾아라**
+
+<br>
+
+- **풀이 해설**
+  - **이전의 값 vs 두번 이전의 값 + 현재 값을 계속 비교하며 순회 후 결과를 도출**한다. 
+  - **이렇게 계산한 값을 바로 이전(prev), 두번 이전(twoPrev) 값으로 나누어 저장하여 활용**한다. 
+
+~~~ swift
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        
+        long long prev = 0;
+        long long twoPrev = 0;
+        if(nums.size()==0) return 0;
+        vector<long long> DP(nums.size(),0);
+        for(int i=0; i<nums.size(); i++) {
+            // 바로 전의 연산값 vs 현재 집을 털때비용 + 2칸 전의 연산값 중 큰 값을 비교한다.
+            DP[i] = max(twoPrev+nums[i], prev);
+            // prev값은 다음 인덱스 기준 2칸 전의 값을 갖게 된다. 
+            // (실질적으로 i>=2 부터 twoPrev에 0 이상의 값이 들어가 사용된다..)
+            twoPrev = prev;
+            // DP[i]은 다음 인덱스 기준 1칸 전의 값을 갖게 된다. 
+            // (실질적으로 i>=1 부터 prev에 0 이상의 값이 들어가 사용된다..)
+            prev = DP[i];
+        }
+        
+        return DP.back();
+    }
+};
+~~~
+
+
+
+<br>
+
+
+
+### Min Cost Climbing Stairs**
 
 - (주소) https://leetcode.com/problems/min-cost-climbing-stairs/submissions/
 
@@ -39,7 +87,7 @@ public:
 };
 ~~~
 
-
+<br>
 
 
 
@@ -80,7 +128,7 @@ public:
 
 ~~~
 
-
+<br>
 
 
 
