@@ -392,9 +392,46 @@ public:
 <br>
 
 - 풀이 해설:
+  - 좌 -> 우로 갈 때의 압력 값을 기록한다. 
+    - R일 경우 압력값은 N이 된다. 
+    - . 일 경우 압력값은 이전 압력-1이다.
+    - L일 경우 압력값은 0이 된다. 
+  - 우 -> 좌로 갈 때의 압력 값을 기록한다. 
+    - L일 경우 압력값을 N이 된다. 
+    - . 일 경우 압력값은 이전 압력-1이다.
+    - R일 경우 압력값은 0이 된다. 
+  - 좌 -> 우 압력값 + 우 -> 좌 압력값을 더한 압력 결과값을 통해 양수(R), 음수(L), 0(.) 과 같이 도미노의 결과상태를 알 수 있다. 
 
 ~~~ swift
-// ...
+class Solution {
+public:
+    string pushDominoes(string dominoes) {
+        int N = dominoes.length();
+        string Ans = "";
+        vector<int> forces(N, 0);
+        int force = 0;
+        for(int i=0; i<N; i++) {
+            if(dominoes[i]=='R') force = N;
+            else if(dominoes[i]=='L') force = 0;
+            else force = max(force-1, 0);
+            forces[i] += force;
+        }
+        
+        force = 0;
+        for(int i=N-1; i>=0; i--) {
+            if(dominoes[i]=='L') force = N;
+            else if(dominoes[i]=='R') force = 0;
+            else force = max(force-1, 0);
+            forces[i] -= force;
+        }
+        
+        for(auto v: forces) {
+            if(v==0) Ans += '.';
+            else Ans += (v>0) ? 'R' : 'L';
+        }
+        return Ans;
+    }
+};
 ~~~
 
 
