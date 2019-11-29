@@ -126,9 +126,41 @@
 
 ---
 
+#### 2019.11.21 (목)
 
+참석자: 신성환, 황희연
 
+- 풀이한 문제 
+  - Subarray Product Less Than K https://leetcode.com/problems/subarray-product-less-than-k/
+  \- delete-and-earn https://leetcode.com/problems/delete-and-earn/황희연
+  \- Minimum Path Sum https://leetcode.com/problems/minimum-path-sum/
+  \- Maximum Product of Word Lengths https://leetcode.com/problems/maximum-product-of-word-lengths/민경태
+  \- Maximum Product Subarray https://leetcode.com/problems/maximum-product-subarray/
+  \- integer-break https://leetcode.com/problems/integer-break추지철
+  \- Range Sum Query 2D Immutable https://leetcode.com/problems/range-sum-query-2d-immutable/
+  \- unique-substrings-in-wraparound-string https://leetcode.com/problems/unique-substrings-in-wraparound-string/
 
+- 세미나:
+  이번 주는 생략합니다.
 
+---
 
+#### 2019.11.28 (목)
+
+참석자: 신성환, 황희연, 민경태
+
+- 풀이한 문제 
+  - Best Time to Buy and Sell Stock with Cooldown https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
+  - Min cost climbing stairs https://leetcode.com/problems/min-cost-climbing-stairs/ 
+  - Most Profit Assigning Work https://leetcode.com/problems/most-profit-assigning-work/
+  - House Robber https://leetcode.com/problems/house-robber/
+  - Push Dominoes https://leetcode.com/problems/push-dominoes/
+  - Counting Bits https://leetcode.com/problems/counting-bits/
+  - Perfect Squares https://leetcode.com/problems/perfect-squares/
+  - Best time to buy and sell stock https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+
+- 세미나:
+  수학적 귀납법과 점화식, 선형대수학적 점화식 풀이 소개 (신성환)
+
+---
 
