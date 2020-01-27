@@ -43,15 +43,19 @@
 
 ---
 
-
-
 #### 2020.1.8 (수)
 
 참석자: 민경태, 황희연, 김동훈
 주제: DFS
 - 풀이한 문제:
-
-  - Two sum(https://leetcode.com/problems/two-sum/)
+  - 순한맛 : 
+(longest path) https://www.acmicpc.net/problem/3482
+(N-Queens) https://leetcode.com/problems/n-queens/
+(Sum Root to Leaf Numbers) https://leetcode.com/problems/sum-root-to-leaf-numbers/
+  - 매운맛 : 
+(단지번호붙이기) https://www.acmicpc.net/problem/2667
+(안전영역) https://www.acmicpc.net/problem/2468
+(빙산) https://www.acmicpc.net/problem/2573
 
 ---
 
@@ -61,17 +65,30 @@
 주제: Hash
 
 - 풀이한 문제:
-  - Word Ladder (https://leetcode.com/problems/word-ladder-ii/) 
-  - 
+  - 순한맛 :
+https://leetcode.com/problems/word-pattern/
+https://leetcode.com/problems/isomorphic-strings/
+https://leetcode.com/problems/brick-wall/
+  - 매운맛 :
+ https://leetcode.com/problems/insert-delete-getrandom-o1/
+https://leetcode.com/problems/number-of-atoms/
+https://leetcode.com/problems/4sum-ii/
 ---
 
 #### 2020.1.23 (목)
 
 참석자: 민경태, 황희연, 김동훈
 주제: Heap
+- 풀이한 문제:
+  - 순한맛 :
+https://leetcode.com/problems/distant-barcodes/
+https://www.acmicpc.net/problem/2220
+https://leetcode.com/problems/kth-largest-element-in-a-stream/
+  - 매운맛 :
+https://leetcode.com/problems/minimum-cost-to-hire-k-workers/
+https://leetcode.com/problems/super-ugly-number/
+https://leetcode.com/problems/top-k-frequent-words/
 
-- 풀이한 문제 
-  - asdf
 ---
 
 #### 2020.1.30 (목)
@@ -79,5 +96,22 @@
 참석자: 
 주제: Heap 2
 
-- 풀이한 문제 
-  - 
+- 풀이한 문제:
+  - 순한맛 :
+https://www.acmicpc.net/problem/1715
+https://leetcode.com/problems/find-k-pairs-with-smallest-sums/
+  - 매운맛 :
+https://leetcode.com/problems/sort-characters-by-frequency
+https://leetcode.com/problems/split-array-into-consecutive-subsequences/
+
+---
+
+#### 2020.2.6 (목)
+
+참석자: 
+주제: 
+
+- 풀이한 문제:
+  - 순한맛 :
+
+  - 매운맛 :
