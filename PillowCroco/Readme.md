@@ -3,6 +3,7 @@
 
 #### 2020.1.8 (수)
 주제: DFS
+
 순한맛: 
 Labyrinth
 https://www.acmicpc.net/problem/3482
