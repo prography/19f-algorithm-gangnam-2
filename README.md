@@ -49,7 +49,7 @@
 주제: DFS
 - 풀이한 문제:
   - 순한맛 : 
-(longest path) https://www.acmicpc.net/problem/3482
+(Labyrinth) https://www.acmicpc.net/problem/3482
 (N-Queens) https://leetcode.com/problems/n-queens/
 (Sum Root to Leaf Numbers) https://leetcode.com/problems/sum-root-to-leaf-numbers/
   - 매운맛 : 
@@ -93,6 +93,12 @@ https://leetcode.com/problems/top-k-frequent-words/
 
 #### 2020.1.30 (목)
 
+한 주 미룹니다! 
+
+---
+
+#### 2020.2.6 (목)
+
 참석자: 
 주제: Heap 2
 
@@ -103,10 +109,9 @@ https://leetcode.com/problems/find-k-pairs-with-smallest-sums/
   - 매운맛 :
 https://leetcode.com/problems/sort-characters-by-frequency
 https://leetcode.com/problems/split-array-into-consecutive-subsequences/
-
 ---
 
-#### 2020.2.6 (목)
+#### 2020.2.13 (목)
 
 참석자: 
 주제: 
