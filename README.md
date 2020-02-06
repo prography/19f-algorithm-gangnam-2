@@ -13,9 +13,9 @@
   - leetcode.com, acmicpc.net 등 이용
 - 매 주 1회 오프라인으로 만나 **문제 풀이**와 **의논**을 진행합니다.
   - 각자 자신이 선정한 두 문제를 설명합니다.
-  - 해결이 어려웠던 문제의 경우 문제에 대한 
+  - 해결이 어려웠던 문제의 경우 문제에 대한 의논을 같이 나눕니다.
   - 모임 장소는 **신도림**, 시간은 **매주 목요일 오후 1:30~3:30** 입니다.
-   다만 인원이 적은 만큼 유동적으로 시간을 정합니다 :D 
+  - 다만 인원이 적은 만큼 유동적으로 시간을 정합니다 :D 
 
 
 
@@ -48,14 +48,14 @@
 참석자: 민경태, 황희연, 김동훈
 주제: DFS
 - 풀이한 문제:
-  - 순한맛 : 
-(Labyrinth) https://www.acmicpc.net/problem/3482
-(N-Queens) https://leetcode.com/problems/n-queens/
-(Sum Root to Leaf Numbers) https://leetcode.com/problems/sum-root-to-leaf-numbers/
+  - 순한맛 :   
+    - (Labyrinth) https://www.acmicpc.net/problem/3482
+    - (N-Queens) https://leetcode.com/problems/n-queens/
+    - (Sum Root to Leaf Numbers) https://leetcode.com/problems/sum-root-to-leaf-numbers/
   - 매운맛 : 
-(단지번호붙이기) https://www.acmicpc.net/problem/2667
-(안전영역) https://www.acmicpc.net/problem/2468
-(빙산) https://www.acmicpc.net/problem/2573
+    - (단지번호붙이기) https://www.acmicpc.net/problem/2667
+    - (안전영역) https://www.acmicpc.net/problem/2468
+    - (빙산) https://www.acmicpc.net/problem/2573
 
 ---
 
@@ -66,13 +66,13 @@
 
 - 풀이한 문제:
   - 순한맛 :
-https://leetcode.com/problems/word-pattern/
-https://leetcode.com/problems/isomorphic-strings/
-https://leetcode.com/problems/brick-wall/
+    - https://leetcode.com/problems/word-pattern/
+    - https://leetcode.com/problems/isomorphic-strings/
+    - https://leetcode.com/problems/brick-wall/
   - 매운맛 :
- https://leetcode.com/problems/insert-delete-getrandom-o1/
-https://leetcode.com/problems/number-of-atoms/
-https://leetcode.com/problems/4sum-ii/
+    -  https://leetcode.com/problems/insert-delete-getrandom-o1/
+    - https://leetcode.com/problems/number-of-atoms/
+    - https://leetcode.com/problems/4sum-ii/
 ---
 
 #### 2020.1.23 (목)
@@ -81,13 +81,13 @@ https://leetcode.com/problems/4sum-ii/
 주제: Heap
 - 풀이한 문제:
   - 순한맛 :
-https://leetcode.com/problems/distant-barcodes/
-https://www.acmicpc.net/problem/2220
-https://leetcode.com/problems/kth-largest-element-in-a-stream/
+    - https://leetcode.com/problems/distant-barcodes/
+    - https://www.acmicpc.net/problem/2220
+    - https://leetcode.com/problems/kth-largest-element-in-a-stream/
   - 매운맛 :
-https://leetcode.com/problems/minimum-cost-to-hire-k-workers/
-https://leetcode.com/problems/super-ugly-number/
-https://leetcode.com/problems/top-k-frequent-words/
+    - https://leetcode.com/problems/minimum-cost-to-hire-k-workers/
+    - https://leetcode.com/problems/super-ugly-number/
+    - https://leetcode.com/problems/top-k-frequent-words/
 
 ---
 
@@ -104,11 +104,11 @@ https://leetcode.com/problems/top-k-frequent-words/
 
 - 풀이한 문제:
   - 순한맛 :
-https://www.acmicpc.net/problem/1715
-https://leetcode.com/problems/find-k-pairs-with-smallest-sums/
+    - https://www.acmicpc.net/problem/1715
+    - https://leetcode.com/problems/find-k-pairs-with-smallest-sums/
   - 매운맛 :
-https://leetcode.com/problems/sort-characters-by-frequency
-https://leetcode.com/problems/split-array-into-consecutive-subsequences/
+    - https://leetcode.com/problems/sort-characters-by-frequency
+    - https://leetcode.com/problems/split-array-into-consecutive-subsequences/
 ---
 
 #### 2020.2.13 (목)
