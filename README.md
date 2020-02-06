@@ -1,3 +1,4 @@
+
 # 프랖 5기 알터디 2번째!
 
 ### 참가자: 민경태, 황희연, 김동훈
@@ -99,7 +100,7 @@
 
 #### 2020.2.6 (목)
 
-참석자: 
+참석자: 민경태, 황희연, 김동훈
 주제: Heap 2
 
 - 풀이한 문제:
@@ -114,9 +115,12 @@
 #### 2020.2.13 (목)
 
 참석자: 
-주제: 
+주제: DP, DFS
 
 - 풀이한 문제:
-  - 순한맛 :
-
-  - 매운맛 :
+	 - https://www.acmicpc.net/problem/11722 (가장 긴 감소하는 수열, DP)
+	 - https://www.acmicpc.net/problem/7682 (틱택토, DFS)  
+	 - [https://leetcode.com/problems/unique-paths/](https://leetcode.com/problems/unique-paths/) (DP)
+	 - [https://leetcode.com/problems/wiggle-subsequence/](https://leetcode.com/problems/wiggle-subsequence/) (DP)
+	 - [https://www.acmicpc.net/problem/9461](https://www.acmicpc.net/problem/9461) (파도반 수열, DP)
+	 - [https://www.acmicpc.net/problem/2146](https://www.acmicpc.net/problem/2146) (다리 만들기)
