@@ -114,7 +114,7 @@
 
 #### 2020.2.13 (목)
 
-참석자: 
+참석자: 민경태, 황희연, 김동훈
 주제: DP, DFS
 
 - 풀이한 문제:
@@ -124,3 +124,17 @@
 	 - [https://leetcode.com/problems/wiggle-subsequence/](https://leetcode.com/problems/wiggle-subsequence/) (DP)
 	 - [https://www.acmicpc.net/problem/9461](https://www.acmicpc.net/problem/9461) (파도반 수열, DP)
 	 - [https://www.acmicpc.net/problem/2146](https://www.acmicpc.net/problem/2146) (다리 만들기)
+---
+
+#### 2020.2.20 (목)
+
+참석자: 민경태, 황희연, 김동훈
+주제: 문자열(String) 처리
+
+- 풀이한 문제:
+	- https://leetcode.com/problems/longest-substring-without-repeating-characters/
+	- [https://leetcode.com/problems/valid-parenthesis-string/](https://leetcode.com/problems/valid-parenthesis-string/)
+	- [https://leetcode.com/problems/print-words-vertically/](https://leetcode.com/problems/print-words-vertically/)
+	- [https://www.acmicpc.net/problem/2800](https://www.acmicpc.net/problem/2800)
+	- [https://leetcode.com/problems/delete-operation-for-two-strings/](https://leetcode.com/problems/delete-operation-for-two-strings/)
+	- [https://leetcode.com/problems/edit-distance/](https://leetcode.com/problems/edit-distance/)
