@@ -10,13 +10,13 @@
 
 #### 전체적인 진행 방식
 
-- 매 주 정해진 문제를 모두 온라인으로 학습합니다. 
+- 매 주 정해진 문제를 모두 온라인으로 학습합니다.
   - leetcode.com, acmicpc.net 등 이용
 - 매 주 1회 오프라인으로 만나 **문제 풀이**와 **의논**을 진행합니다.
   - 각자 자신이 선정한 두 문제를 설명합니다.
   - 해결이 어려웠던 문제의 경우 문제에 대한 의논을 같이 나눕니다.
   - 모임 장소는 **신도림**, 시간은 **매주 목요일 오후 1:30~3:30** 입니다.
-  - 다만 인원이 적은 만큼 유동적으로 시간을 정합니다 :D 
+  - 다만 인원이 적은 만큼 유동적으로 시간을 정합니다 :D
 
 
 
@@ -24,7 +24,7 @@
 
 - 참여자 각각이 순한맛 1개, 매운맛 1개를 선정한 뒤 세션까지 모두가 풀어옵니다.
 - 각 오프라인 세션에서 본인이 선정한 문제를 설명하고 풀이합니다.
-- 다음 세션까지 어떤 주제의 문제를 풀지는 매주 유동적으로 선정합니다. 
+- 다음 세션까지 어떤 주제의 문제를 풀지는 매주 유동적으로 선정합니다.
 
 
 
@@ -33,8 +33,8 @@
 
 #### 개인별 기록하기
 
-- github에 MarkDown파일 형식으로 기록하여 push합니다. 
-- 각자 업로드되어 있는 템플릿을 이용하여 작성 및 업로드합니다. 필수 내용은 아래와 같습니다. 
+- github에 MarkDown파일 형식으로 기록하여 push합니다.
+- 각자 업로드되어 있는 템플릿을 이용하여 작성 및 업로드합니다. 필수 내용은 아래와 같습니다.
   - 문제 요약
   - 풀이 코드
   - 코드 해설
@@ -53,7 +53,7 @@
     - (Labyrinth) https://www.acmicpc.net/problem/3482
     - (N-Queens) https://leetcode.com/problems/n-queens/
     - (Sum Root to Leaf Numbers) https://leetcode.com/problems/sum-root-to-leaf-numbers/
-  - 매운맛 : 
+  - 매운맛 :
     - (단지번호붙이기) https://www.acmicpc.net/problem/2667
     - (안전영역) https://www.acmicpc.net/problem/2468
     - (빙산) https://www.acmicpc.net/problem/2573
@@ -94,7 +94,7 @@
 
 #### 2020.1.30 (목)
 
-한 주 미룹니다! 
+한 주 미룹니다!
 
 ---
 
@@ -138,3 +138,18 @@
 	- [https://www.acmicpc.net/problem/2800](https://www.acmicpc.net/problem/2800)
 	- [https://leetcode.com/problems/delete-operation-for-two-strings/](https://leetcode.com/problems/delete-operation-for-two-strings/)
 	- [https://leetcode.com/problems/edit-distance/](https://leetcode.com/problems/edit-distance/)
+
+---
+
+#### 2020.2.27 (목)
+
+참석자: 민경태, 황희연, 김동훈<br/>
+주제: two pointer
+
+- 풀이한 문제:
+	- https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/
+	- https://leetcode.com/problems/count-number-of-nice-subarrays/
+	- https://www.acmicpc.net/problem/1644
+	- https://leetcode.com/problems/3sum-with-multiplicity/
+	- https://leetcode.com/problems/sort-colors/
+	- https://leetcode.com/problems/binary-subarrays-with-sum/

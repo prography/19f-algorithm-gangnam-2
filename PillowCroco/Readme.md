@@ -40,11 +40,11 @@
 - [x] https://www.acmicpc.net/problem/11722 (가장 긴 감소하는 수열, DP)
 - [x] https://www.acmicpc.net/problem/7682 (틱택토, DFS)  
 - [x]  https://leetcode.com/problems/unique-paths/ (DP)
-- - [x] [https://programmers.co.kr/learn/courses/30/lessons/42898](https://programmers.co.kr/learn/courses/30/lessons/42898)
+  - [x] [https://programmers.co.kr/learn/courses/30/lessons/42898](https://programmers.co.kr/learn/courses/30/lessons/42898)
 - [x] https://leetcode.com/problems/wiggle-subsequence/ (DP)
 - [x] https://www.acmicpc.net/problem/9461 (파도반 수열, DP)
 - [ ] https://www.acmicpc.net/problem/2146 (다리 만들기)
-- [ ] [https://leetcode.com/problems/k-diff-pairs-in-an-array/](https://leetcode.com/problems/k-diff-pairs-in-an-array/) 
+- [ ] [https://leetcode.com/problems/k-diff-pairs-in-an-array/](https://leetcode.com/problems/k-diff-pairs-in-an-array/)
 
 ---
 ### 2020.2.20 (목), 문자열 처리
@@ -54,4 +54,13 @@
 - [ ] [https://www.acmicpc.net/problem/2800](https://www.acmicpc.net/problem/2800)
 - [ ] [https://leetcode.com/problems/delete-operation-for-two-strings/](https://leetcode.com/problems/delete-operation-for-two-strings/)
 - [ ] [https://leetcode.com/problems/edit-distance/](https://leetcode.com/problems/edit-distance/)
- - [ ] [https://leetcode.com/problems/break-a-palindrome/](https://leetcode.com/problems/break-a-palindrome/) (Palindrome, 회문에 대한 문제가 많기에)
+  - [ ] [https://leetcode.com/problems/break-a-palindrome/](https://leetcode.com/problems/break-a-palindrome/) (Palindrome, 회문에 대한 문제가 많기에)
+
+---
+### 2020.2.27 (목), two pointer
+- [ ] https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/
+- [ ] https://leetcode.com/problems/count-number-of-nice-subarrays/
+- [ ] https://www.acmicpc.net/problem/1644
+- [ ] https://leetcode.com/problems/3sum-with-multiplicity/
+- [ ] https://leetcode.com/problems/sort-colors/
+- [ ] https://leetcode.com/problems/binary-subarrays-with-sum/
