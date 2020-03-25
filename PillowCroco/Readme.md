@@ -64,3 +64,26 @@
 - [ ] https://leetcode.com/problems/3sum-with-multiplicity/
 - [ ] https://leetcode.com/problems/sort-colors/
 - [ ] https://leetcode.com/problems/binary-subarrays-with-sum/
+
+
+
+---
+### 2020.3.11 (수), 실전 문제(SWEA 테스트 기출 + solved.ac 실버 이상)
+
+- [ ] https://www.acmicpc.net/problem/14503
+- [x] https://www.acmicpc.net/problem/5525
+- [x] https://www.acmicpc.net/problem/14500
+- [x] https://acmicpc.net/problem/11399
+- [ ] https://www.acmicpc.net/problem/1931
+- [ ] https://www.acmicpc.net/problem/16234
+
+
+---
+### 2020.3.25 (수), 실전 문제(SWEA 테스트 기출 + solved.ac 골드 이상)
+
+- [ ] https://www.acmicpc.net/problem/2482
+- [ ] https://www.acmicpc.net/problem/17142
+- [ ] https://www.acmicpc.net/problem/1022
+- [ ] https://www.acmicpc.net/problem/16236
+- [ ] https://www.acmicpc.net/problem/1477
+- [ ] https://www.acmicpc.net/problem/17144
