@@ -87,3 +87,14 @@
 - [ ] https://www.acmicpc.net/problem/16236
 - [ ] https://www.acmicpc.net/problem/1477
 - [ ] https://www.acmicpc.net/problem/17144
+
+
+---
+### 2020.4.1 (수), 실전 문제(SWEA 테스트 기출 + solved.ac 실버 이상)
+
+- [ ] https://www.acmicpc.net/problem/3190
+- [ ] https://www.acmicpc.net/problem/14499
+- [ ] https://www.acmicpc.net/problem/1992
+- [ ] https://www.acmicpc.net/problem/17140
+- [ ] https://www.acmicpc.net/problem/14501
+- [ ] https://www.acmicpc.net/problem/2470
