@@ -83,8 +83,8 @@
 
 - [ ] https://www.acmicpc.net/problem/2482
 - [ ] https://www.acmicpc.net/problem/17142
-- [ ] https://www.acmicpc.net/problem/1022
-- [ ] https://www.acmicpc.net/problem/16236
+- [x] https://www.acmicpc.net/problem/1022
+- [x] https://www.acmicpc.net/problem/16236
 - [ ] https://www.acmicpc.net/problem/1477
 - [ ] https://www.acmicpc.net/problem/17144
 
@@ -92,9 +92,35 @@
 ---
 ### 2020.4.1 (수), 실전 문제(SWEA 테스트 기출 + solved.ac 실버 이상)
 
-- [ ] https://www.acmicpc.net/problem/3190
+- [x] https://www.acmicpc.net/problem/3190
 - [ ] https://www.acmicpc.net/problem/14499
-- [ ] https://www.acmicpc.net/problem/1992
+- [x] https://www.acmicpc.net/problem/1992
 - [ ] https://www.acmicpc.net/problem/17140
 - [ ] https://www.acmicpc.net/problem/14501
-- [ ] https://www.acmicpc.net/problem/2470
+- [x] https://www.acmicpc.net/problem/2470
+
+---
+
+### 2020.4.12 (일), 복습 8문항
+
+- [x] https://www.acmicpc.net/problem/2573 (빙산)
+- [x] https://leetcode.com/problems/edit-distance/
+- [ ] https://leetcode.com/problems/number-of-atoms
+- [x] https://leetcode.com/problems/n-queens
+- [ ] https://www.acmicpc.net/problem/17140 (이차원 배열과 연산)
+- [ ] https://www.acmicpc.net/problem/14499 (주사위 굴리기)
+- [x] https://www.acmicpc.net/problem/11722 (가장 긴 감소하는 부분 수열)
+- [x] https://www.acmicpc.net/problem/1644 (소수의 연속 합)
+
+
+---
+### 2020.4.22 (수), 복습 8문항
+
+- [ ] https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/
+- [ ] https://www.acmicpc.net/problem/1477 (휴게소 세우기)
+- [ ] https://leetcode.com/problems/sum-root-to-leaf-numbers/
+- [ ] https://leetcode.com/problems/break-a-palindrome/
+- [ ] https://leetcode.com/problems/top-k-frequent-words/
+- [ ] https://leetcode.com/problems/split-array-into-consecutive-subsequences/
+- [ ] https://leetcode.com/problems/sort-colors/
+- [ ] https://leetcode.com/problems/wiggle-subsequence/
