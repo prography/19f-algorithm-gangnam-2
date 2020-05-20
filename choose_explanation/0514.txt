@@ -1,0 +1,27 @@
+5653. [모의 SW 역량테스트] 줄기세포배양
+https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRJ8EKe48DFAUo
+
+2115. [모의 SW 역량테스트] 벌꿀채취
+https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5V4A46AdIDFAWu
+
+2105. [모의 SW 역량테스트] 디저트 카페 
+https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5VwAr6APYDFAWu 
+
+백준- 14889. 스타트와 링크
+https://www.acmicpc.net/problem/14889
+
+
+
+연산자 끼워넣기
+https://www.acmicpc.net/problem/14888
+연구소
+https://www.acmicpc.net/problem/14502
+
+
+---------------------
+원주: 5653. [모의 SW 역량테스트] 줄기세포배양
+동훈: 2115. [모의 SW 역량테스트] 벌꿀채취
+희연: 2105. [모의 SW 역량테스트] 디저트 카페 
+원주: 백준- 14889. 스타트와 링크
+희연: 연산자 끼워넣기
+동훈: 연구소
