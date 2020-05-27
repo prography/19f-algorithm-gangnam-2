@@ -7,3 +7,8 @@ https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5
 
 원자소멸시뮬레이션
 https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRFInKex8DFAUo&categoryId=AWXRFInKex8DFAUo&categoryType=CODE
+
+파이프 옮기기1
+https://www.acmicpc.net/problem/17070
+색종이 붙이기
+https://www.acmicpc.net/problem/17136
