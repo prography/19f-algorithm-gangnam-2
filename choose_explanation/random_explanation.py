@@ -3,7 +3,9 @@ import re
 
 names = ["희연", "동훈", "원주"] * 2
 probs = []
-f = open("./0514.txt",'rt', encoding='UTF8')
+
+filename = "./0528.txt"
+f = open(filename,'rt', encoding='UTF8')
 
 while True:
     line = f.readline()
@@ -24,7 +26,7 @@ while True:
 shuffle(names)
 f.close()
 
-f = open("0514.txt",'at', encoding='UTF8')
+f = open(filename,'at', encoding='UTF8')
 
 f.write('\n\n---------------------\n')
 for i in range(6):

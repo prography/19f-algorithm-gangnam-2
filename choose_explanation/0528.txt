@@ -1,0 +1,22 @@
+2048(easy)
+https://www.acmicpc.net/problem/12100
+톱니바퀴
+https://www.acmicpc.net/problem/14891
+수영장
+https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PpFQaAQMDFAUq&categoryId=AV5PpFQaAQMDFAUq&categoryType=CODE
+
+원자소멸시뮬레이션
+https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRFInKex8DFAUo&categoryId=AWXRFInKex8DFAUo&categoryType=CODE
+
+파이프 옮기기1
+https://www.acmicpc.net/problem/17070
+색종이 붙이기
+https://www.acmicpc.net/problem/17136
+
+--------------------------------------
+동훈: 2048(easy)
+동훈: 톱니바퀴
+희연: 수영장
+원주: 원자소멸시뮬레이션
+원주: 파이프 옮기기1
+희연: 색종이 붙이기
