@@ -1,10 +1,15 @@
 from random import shuffle
 import re
 
-names = ["희연", "동훈", "원주"] * 2
+# setting
+filename = "./0709.txt"
+num_probs = 12
+# end setting
+
+names = ["희연", "동훈", "원주"] * int(num_probs/3)
 probs = []
 
-filename = "./0528.txt"
+
 f = open(filename,'rt', encoding='UTF8')
 
 while True:
@@ -14,9 +19,6 @@ while True:
 
     if re.compile('http').match(line) or line == '\n':
         continue
-
-    cnt = 0
-    
     probs.append(line)
 
 
@@ -29,7 +31,7 @@ f.close()
 f = open(filename,'at', encoding='UTF8')
 
 f.write('\n\n---------------------\n')
-for i in range(6):
+for i in range(num_probs):
     names[i] +=": "
     names[i] +=probs[i]
     print(names[i][:-1])
