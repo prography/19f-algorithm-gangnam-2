@@ -1,0 +1,38 @@
+5658. [모의 SW 역량테스트] 보물상자 비밀번호 
+https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRUN9KfZ8DFAUo&categoryId=AWXRUN9KfZ8DFAUo&categoryType=CODE
+드래곤 커브
+https://www.acmicpc.net/problem/15685
+숫자 만들기
+https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWIeRZV6kBUDFAVH&categoryId=AWIeRZV6kBUDFAVH&categoryType=CODE
+점심 식사시간
+https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5-BEE6AK0DFAVl&categoryId=AV5-BEE6AK0DFAVl&categoryType=CODE
+경사로 
+https://www.acmicpc.net/problem/14890
+나무 재테크
+https://www.acmicpc.net/problem/16235
+Coin Change
+https://leetcode.com/problems/coin-change/
+Jump Game
+https://leetcode.com/problems/jump-game/
+타임머신
+https://www.acmicpc.net/problem/11657
+임계경로
+https://www.acmicpc.net/problem/1948
+Permutation Sequence
+https://leetcode.com/problems/permutation-sequence/
+Add and Search Word
+https://leetcode.com/problems/add-and-search-word-data-structure-design/
+
+---------------------
+희연: 5658. [모의 SW 역량테스트] 보물상자 비밀번호 
+동훈: 드래곤 커브
+희연: 숫자 만들기
+희연: 점심 식사시간
+희연: 경사로 
+원주: 나무 재테크
+원주: Coin Change
+원주: Jump Game
+동훈: 타임머신
+동훈: 임계경로
+원주: Permutation Sequence
+동훈: Add and Search Word
