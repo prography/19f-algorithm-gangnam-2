@@ -16,3 +16,14 @@ https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5
 https://leetcode.com/problems/sum-root-to-leaf-numbers/
  Number of Islands 
 https://leetcode.com/problems/number-of-islands/
+
+---------------------
+희연: 박성원 
+원주:  큐빙 
+동훈:  word break 
+동훈:  gas station 
+원주:  지민이의 테러 Season II 
+희연:  알고스팟어 
+동훈:  점심 식사시간 
+원주:  Sum Root to Leaf Numbers 
+희연:  Number of Islands 
