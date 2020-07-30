@@ -2,8 +2,8 @@ from random import shuffle
 import re
 
 # setting
-filename = "./0709.txt"
-num_probs = 12
+filename = "./0730.txt"
+num_probs = 9
 # end setting
 
 names = ["희연", "동훈", "원주"] * int(num_probs/3)

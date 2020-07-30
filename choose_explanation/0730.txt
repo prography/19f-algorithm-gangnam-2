@@ -1,0 +1,18 @@
+박성원 
+https://www.acmicpc.net/problem/1086
+ 큐빙 
+https://www.acmicpc.net/problem/5373
+ word break 
+https://leetcode.com/problems/word-break/
+ gas station 
+https://leetcode.com/problems/gas-station/
+ 지민이의 테러 Season II 
+https://www.acmicpc.net/problem/1650
+ 알고스팟어 
+https://www.acmicpc.net/problem/2848
+ 점심 식사시간 
+https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5-BEE6AK0DFAVl&categoryId=AV5-BEE6AK0DFAVl&categoryType=CODE
+ Sum Root to Leaf Numbers 
+https://leetcode.com/problems/sum-root-to-leaf-numbers/
+ Number of Islands 
+https://leetcode.com/problems/number-of-islands/
