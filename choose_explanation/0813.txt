@@ -10,3 +10,11 @@ Longest Mountain in Array
 https://leetcode.com/problems/longest-mountain-in-array/
 Most Profit Assigning Work
 https://leetcode.com/problems/most-profit-assigning-work/
+
+---------------------
+희연: Number of Ways to Wear Different Hats to Each Other
+원주: 모노미노도미노
+동훈: Partition Equal Subset Sum
+원주: Merge Intervals
+동훈: Longest Mountain in Array
+희연: Most Profit Assigning Work
